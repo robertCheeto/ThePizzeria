@@ -1,5 +1,7 @@
 in-class project that uses interfaces and multiple menu UIs to reference - https://github.com/topherbc/Java-Academy-Fall-25/tree/main/week-07/class/day-1
 
 TO-DO:
-*
-*
+* need to either add a InputUtility/ConsoleUtility class to handle user inputs
+or keep adding Scanner and int userInput to new menus when needed
+* need to figure out // lost my train of thought
+* clean up names for PizzaMenu methods

@@ -2,11 +2,13 @@ package com.pluralsight.ui;
 
 public class PizzaMenu {
 
-    public void displayPizzaMenu() {
+    public static void displayPizzaMenu() {
+        pizzaCrustMenu();
+        pizzaToppingsMenu();
 
     }
 
-    public void pizzaCrustMenu() {
+    public static void pizzaCrustMenu() {
         System.out.println("What type of crust do you want on your pizza?");
         System.out.println("1) Thin Crust");
         System.out.println("2) Regular Crust");
@@ -15,7 +17,7 @@ public class PizzaMenu {
         System.out.print("Input option here: ");
     }
 
-    public void pizzaToppingsMenu() {
+    public static void pizzaToppingsMenu() {
         System.out.println("Do you want any meats?");
         System.out.println("1) Pepperoni");
         System.out.println("2) Sausage");

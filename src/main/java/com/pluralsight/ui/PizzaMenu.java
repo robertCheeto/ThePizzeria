@@ -10,6 +10,7 @@ public class PizzaMenu {
 
     public static void displayPizzaMenu() {
         displayPizzaCrustMenu();
+        displayPizzaToppingsMenu();
 
     }
 
@@ -34,7 +35,6 @@ public class PizzaMenu {
                 break;
             }
         }
-
     }
 
     public static void pizzaCrustMenu() {
@@ -44,6 +44,31 @@ public class PizzaMenu {
         System.out.println("3) Thick Crust");
         System.out.println("4) Cauliflower Crust");
         System.out.print("Input option here: ");
+    }
+
+    public static void displayPizzaToppingsMenu() {
+        pizzaToppingsMenu();
+
+        while (isRunning) {
+            try {
+                userInput = keyboard.nextInt();
+                keyboard.nextLine();
+
+                switch (userInput) {
+                    case 1 -> System.out.println("Pepperoni has been added");
+                    case 2 -> System.out.println("Sausage has been added");
+                    case 3 -> System.out.println("Ham has been added");
+                    case 4 -> System.out.println("Bacon has been added");
+                    case 5 -> System.out.println("Chicken has been added");
+                    case 6 -> System.out.println("Meatballs have been added");
+                    default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter a number...");
+                break;
+            }
+        }
     }
 
     public static void pizzaToppingsMenu() {

@@ -13,5 +13,3 @@ while utilizing those Objects
 
 * start building Classes in the Order package that will handle printing receipts to the resources folder
 and eventually save them to their own custom folder for easier access
-
-* get project onto desktop

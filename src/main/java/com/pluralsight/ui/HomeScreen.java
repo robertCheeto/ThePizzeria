@@ -12,6 +12,8 @@ public class HomeScreen {
         homeScreenMenu();
 
         while (isRunning) {
+            // try-catch will end the loop if the user inputs a char/string
+            // need to find way to get the program to continue to run if this happens
             try {
                 userInput = keyboard.nextInt();
                 keyboard.nextLine();
@@ -40,6 +42,17 @@ public class HomeScreen {
         System.out.println("1) New Order\n0) Exit");
         System.out.print("Input option here: ");
 
+    }
+
+    public void clearScreen() {
+        for (int i = 0; i < 30; i++) {
+            System.out.println();
+        }
+    }
+
+    public void orderMenu() {
+        clearScreen();
+        System.out.println("");
     }
 
 }

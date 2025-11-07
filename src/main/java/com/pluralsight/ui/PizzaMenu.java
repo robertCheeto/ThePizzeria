@@ -1,10 +1,39 @@
 package com.pluralsight.ui;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class PizzaMenu {
+    private static Scanner keyboard = new Scanner(System.in);
+    private static int userInput;
+    private static final boolean isRunning = true;
 
     public static void displayPizzaMenu() {
+        displayPizzaCrustMenu();
+
+    }
+
+    public static void displayPizzaCrustMenu() {
         pizzaCrustMenu();
-        pizzaToppingsMenu();
+
+        while (isRunning) {
+            try {
+                userInput = keyboard.nextInt();
+                keyboard.nextLine();
+
+                switch (userInput) {
+                    case 1 -> System.out.println("You selected Thin Crust");
+                    case 2 -> System.out.println("You selected Regular Crust");
+                    case 3 -> System.out.println("You selected Thick Crust");
+                    case 4 -> System.out.println("You selected Cauliflower Crust");
+                    default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter a number...");
+                break;
+            }
+        }
 
     }
 

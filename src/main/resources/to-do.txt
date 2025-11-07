@@ -3,5 +3,15 @@ in-class project that uses interfaces and multiple menu UIs to reference - https
 TO-DO:
 * need to either add a InputUtility/ConsoleUtility class to handle user inputs
 or keep adding Scanner and int userInput to new menus when needed
-* need to figure out // lost my train of thought
+
 * clean up names for PizzaMenu methods
+
+* start adding logic to program to let the customer order a pizza, drink, and/or breadsticks
+while utilizing those Objects
+
+* identify where I can implement interfaces and how to utilize them properly
+
+* start building Classes in the Order package that will handle printing receipts to the resources folder
+and eventually save them to their own custom folder for easier access
+
+* get project onto desktop

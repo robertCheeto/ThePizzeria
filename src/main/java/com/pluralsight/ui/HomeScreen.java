@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 public class HomeScreen {
     //should consider making other variables like userInput global
-    private Scanner keyboard = new Scanner(System.in);
+    private static Scanner keyboard = new Scanner(System.in);
+    private static int userInput;
+    private static final boolean isRunning = true;
 
     public void displayHome() {
-        boolean isRunning = true;
-        int userInput;
         homeScreenMenu();
 
         while (isRunning) {
@@ -20,7 +20,7 @@ public class HomeScreen {
                 keyboard.nextLine();
 
                 switch (userInput) {
-                    case 1 -> System.out.println("Starting new order...");
+                    case 1 -> displayOrderMenu();
                     case 0 -> {
                         System.out.println("Program shutting down...");
                         keyboard.close();
@@ -64,6 +64,33 @@ public class HomeScreen {
 
     public void displayOrderMenu() {
         orderScreenMenu();
+
+        while (isRunning) {
+            // try-catch will end the loop if the user inputs a char/string
+            // need to find way to get the program to continue to run if this happens
+            try {
+                userInput = keyboard.nextInt();
+                keyboard.nextLine();
+
+                switch (userInput) {
+                    case 1 -> System.out.println("Adding Pizza to cart...");
+                    case 2 -> System.out.println("Adding Drink to cart...");
+                    case 3 -> System.out.println("Adding Breadsticks to cart...");
+                    case 4 -> System.out.println("Loading checkout menu...");
+                    case 0 -> {
+                        System.out.println("\nReturning to Home Screen...");
+                        // maybe add logic to wait before clearing screen and showing the home menu
+                        displayHome();
+                    }
+                    default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter a number...");
+                break;
+            }
+        }
+
     }
 
 }

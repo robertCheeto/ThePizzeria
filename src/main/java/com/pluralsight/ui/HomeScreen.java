@@ -73,7 +73,11 @@ public class HomeScreen {
                 keyboard.nextLine();
 
                 switch (userInput) {
-                    case 1 -> System.out.println("Adding Pizza to cart...");
+                    case 1 -> {
+                        System.out.println("Adding Pizza to cart...");
+                        clearScreen();
+                        PizzaMenu.displayPizzaMenu();
+                    }
                     case 2 -> System.out.println("Adding Drink to cart...");
                     case 3 -> System.out.println("Adding Breadsticks to cart...");
                     case 4 -> System.out.println("Loading checkout menu...");

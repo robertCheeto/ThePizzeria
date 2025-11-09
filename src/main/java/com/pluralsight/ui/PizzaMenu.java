@@ -1,5 +1,7 @@
 package com.pluralsight.ui;
 
+import com.pluralsight.models.Pizza;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -7,6 +9,43 @@ public class PizzaMenu {
     private static final Scanner keyboard = new Scanner(System.in);
     private static int userInput;
     private static final boolean isRunning = true;
+
+    public static void displayPizzaMenu() {
+        displayPizzaSizeMenu();
+    }
+
+    public static void displayPizzaSizeMenu() {
+        pizzaSizeMenu();
+
+        while (isRunning) {
+            try {
+                userInput = keyboard.nextInt();
+                keyboard.nextLine();
+
+                switch (userInput) {
+                    case 1 -> {
+                        System.out.println("You selected a Personal Sized Pizza");
+                        displayPizzaMeatToppingsMenu();
+                        //return "Thin Crust";
+                    }
+                    case 2 -> {
+                        System.out.println("You selected a Regular Sized Pizza");
+                        //return "Regular Crust";
+                    }
+                    case 3 -> {
+                        System.out.println("You selected a Large Sized Pizza");
+                        //return "Thick Crust";
+                    }
+                    default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter a number...");
+                break;
+            }
+        }
+
+    }
 
     public static void pizzaSizeMenu() {
         System.out.println("What size pizza do you want?");
@@ -16,7 +55,7 @@ public class PizzaMenu {
         System.out.print("Input option here: ");
     }
 
-    public static String displayPizzaCrustMenu() {
+    public static int displayPizzaCrustMenu() {
         pizzaCrustMenu();
 
         while (isRunning) {
@@ -28,19 +67,19 @@ public class PizzaMenu {
                     case 1 -> {
                         System.out.println("You selected Thin Crust");
                         displayPizzaMeatToppingsMenu();
-                        return "Thin Crust";
+                        //return "Thin Crust";
                     }
                     case 2 -> {
                         System.out.println("You selected Regular Crust");
-                        return "Regular Crust";
+                        //return "Regular Crust";
                     }
                     case 3 -> {
                         System.out.println("You selected Thick Crust");
-                        return "Thick Crust";
+                        //return "Thick Crust";
                     }
                     case 4 -> {
                         System.out.println("You selected Cauliflower Crust");
-                        return "Cauliflower Crust";
+                        //return "Cauliflower Crust";
                     }
                     default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
                 }
@@ -50,6 +89,7 @@ public class PizzaMenu {
                 break;
             }
         }
+        return userInput;
     }
 
     public static void pizzaCrustMenu() {

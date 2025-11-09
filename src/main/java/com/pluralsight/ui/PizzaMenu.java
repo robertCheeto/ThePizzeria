@@ -4,16 +4,19 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PizzaMenu {
-    private static Scanner keyboard = new Scanner(System.in);
+    private static final Scanner keyboard = new Scanner(System.in);
     private static int userInput;
     private static final boolean isRunning = true;
 
-    public static void displayPizzaMenu() {
-        displayPizzaCrustMenu();
-
+    public static void pizzaSizeMenu() {
+        System.out.println("What size pizza do you want?");
+        System.out.println("1) Personal 8\" ($8.50)");
+        System.out.println("2) Regular 12\" ($12.00)");
+        System.out.println("3) Large 16\" ($16.50)");
+        System.out.print("Input option here: ");
     }
 
-    public static void displayPizzaCrustMenu() {
+    public static String displayPizzaCrustMenu() {
         pizzaCrustMenu();
 
         while (isRunning) {
@@ -25,10 +28,20 @@ public class PizzaMenu {
                     case 1 -> {
                         System.out.println("You selected Thin Crust");
                         displayPizzaMeatToppingsMenu();
+                        return "Thin Crust";
                     }
-                    case 2 -> System.out.println("You selected Regular Crust");
-                    case 3 -> System.out.println("You selected Thick Crust");
-                    case 4 -> System.out.println("You selected Cauliflower Crust");
+                    case 2 -> {
+                        System.out.println("You selected Regular Crust");
+                        return "Regular Crust";
+                    }
+                    case 3 -> {
+                        System.out.println("You selected Thick Crust");
+                        return "Thick Crust";
+                    }
+                    case 4 -> {
+                        System.out.println("You selected Cauliflower Crust");
+                        return "Cauliflower Crust";
+                    }
                     default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
                 }
 
@@ -48,7 +61,7 @@ public class PizzaMenu {
         System.out.print("Input option here: ");
     }
 
-    public static void displayPizzaMeatToppingsMenu() {
+    public static int displayPizzaMeatToppingsMenu() {
         pizzaMeatToppingsMenu();
 
         while (isRunning) {
@@ -71,6 +84,7 @@ public class PizzaMenu {
                 break;
             }
         }
+        return userInput;
     }
 
     public static void pizzaMeatToppingsMenu() {

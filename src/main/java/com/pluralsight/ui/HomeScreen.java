@@ -4,8 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class HomeScreen {
-    //should consider making other variables like userInput global
-    private static Scanner keyboard = new Scanner(System.in);
+    private static final Scanner keyboard = new Scanner(System.in);
     private static int userInput;
     private static final boolean isRunning = true;
 

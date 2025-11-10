@@ -5,7 +5,6 @@ import com.pluralsight.models.Toppings;
 import com.pluralsight.ordering.PizzaOrder;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,8 +14,10 @@ public class PizzaMenu {
     private static final boolean isRunning = true;
 
     public static void displayPizzaMenu() {
-        Pizza pizza = PizzaOrder.buildPizza("Pie 1", displayPizzaSizeMenu(), 10.99, displayPizzaCrustMenu(), displayAllToppings());
-        System.out.println(pizza);
+        Pizza pizza = null;
+        pizza = PizzaOrder.buildPizza("Pie 1", displayPizzaSizeMenu(), 10, displayPizzaCrustMenu(), displayAllToppings());
+//        System.out.println(pizza);
+        System.out.println(pizza.getTotalPrice());
         //System.out.printf("You ordered a pizza with the following:\nCrust: %s\nSize: %s\nToppings: %s", pizza.getCrustType(), pizza.getSize(), pizza.getToppings());
     }
 
@@ -30,7 +31,6 @@ public class PizzaMenu {
             switch (userInput) {
                 case 1 -> {
                     System.out.println("You selected a Personal Sized Pizza");
-                    //displayPizzaMeatToppingsMenu();
                     return "Personal Sized";
                 }
                 case 2 -> {
@@ -172,27 +172,27 @@ public class PizzaMenu {
 
             switch (userInput) {
                 case 1 -> {
-                    cheese = new Toppings("Mozzarella", 0);
+                    cheese = new Toppings("Mozzarella", 0.75);
                     System.out.println("Mozzarella Cheese has been added");
                     return cheese;
                 }
                 case 2 -> {
-                    cheese = new Toppings("Parmesan", 0);
+                    cheese = new Toppings("Parmesan", 0.75);
                     System.out.println("Parmesan Cheese has been added");
                     return cheese;
                 }
                 case 3 -> {
-                    cheese = new Toppings("Ricotta", 0);
+                    cheese = new Toppings("Ricotta", 0.75);
                     System.out.println("Ricotta Cheese has been added");
                     return cheese;
                 }
                 case 4 -> {
-                    cheese = new Toppings("Goat", 0);
+                    cheese = new Toppings("Goat", 0.75);
                     System.out.println("Goat Cheese has been added");
                     return cheese;
                 }
                 case 5 -> {
-                    cheese = new Toppings("Buffalo", 0);
+                    cheese = new Toppings("Buffalo", 0.75);
                     System.out.println("Buffalo Cheese has been added");
                     return cheese;
                 }
@@ -220,32 +220,32 @@ public class PizzaMenu {
 
             switch (userInput) {
                 case 1 -> {
-                    meat = new Toppings("Pepperoni", 0.5);
+                    meat = new Toppings("Pepperoni", 1);
                     System.out.println("Pepperoni has been added");
                     return meat;
                 }
                 case 2 -> {
-                    meat = (new Toppings("Sausage", 0.56));
+                    meat = (new Toppings("Sausage", 1));
                     System.out.println("Sausage has been added");
                     return meat;
                 }
                 case 3 -> {
-                    meat = (new Toppings("Ham", 0.5));
+                    meat = (new Toppings("Ham", 1));
                     System.out.println("Ham has been added");
                     return meat;
                 }
                 case 4 -> {
-                    meat = (new Toppings("Bacon", 0.5));
+                    meat = (new Toppings("Bacon", 1));
                     System.out.println("Bacon has been added");
                     return meat;
                 }
                 case 5 -> {
-                    meat = (new Toppings("Chicken", 0.5));
+                    meat = (new Toppings("Chicken", 1));
                     System.out.println("Chicken has been added");
                     return meat;
                 }
                 case 6 -> {
-                    meat = (new Toppings("Meatballs", 0.5));
+                    meat = (new Toppings("Meatballs", 1));
                     System.out.println("Meatballs have been added");
                     return meat;
                 }
@@ -275,47 +275,47 @@ public class PizzaMenu {
 
             switch (userInput) {
                 case 1 -> {
-                    extras = new Toppings("Onions", 0.5);
+                    extras = new Toppings("Onions", 0.3);
                     System.out.println("Onions have been added");
                     return extras;
                 }
                 case 2 -> {
-                    extras = new Toppings("Mushrooms", 0.5);
+                    extras = new Toppings("Mushrooms", 0.3);
                     System.out.println("Mushrooms have been added");
                     return extras;
                 }
                 case 3 -> {
-                    extras = new Toppings("Bell Peppers", 0.5);
+                    extras = new Toppings("Bell Peppers", 0.3);
                     System.out.println("Bell Peppers have been added");
                     return extras;
                 }
                 case 4 -> {
-                    extras = new Toppings("Olives", 0.5);
+                    extras = new Toppings("Olives", 0.3);
                     System.out.println("Olives have been added");
                     return extras;
                 }
                 case 5 -> {
-                    extras = new Toppings("Tomatoes", 0.5);
+                    extras = new Toppings("Tomatoes", 0.3);
                     System.out.println("Tomatoes have been added");
                     return extras;
                 }
                 case 6 -> {
-                    extras = new Toppings("Spinach", 0.5);
+                    extras = new Toppings("Spinach", 0.3);
                     System.out.println("Spinach has been added");
                     return extras;
                 }
                 case 7 -> {
-                    extras = new Toppings("Basil", 0.5);
+                    extras = new Toppings("Basil", 0.3);
                     System.out.println("Basil has been added");
                     return extras;
                 }
                 case 8 -> {
-                    extras = new Toppings("Pineapples", 0.5);
+                    extras = new Toppings("Pineapples", 0.3);
                     System.out.println("Pineapples have been added (even though they don't belong!)");
                     return extras;
                 }
                 case 9 -> {
-                    extras = new Toppings("Anchovies", 0.5);
+                    extras = new Toppings("Anchovies", 0.3);
                     System.out.println("Anchovies have been added");
                     return extras;
                 }

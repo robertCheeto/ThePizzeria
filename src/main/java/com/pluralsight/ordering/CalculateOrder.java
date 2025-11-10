@@ -7,6 +7,7 @@ import com.pluralsight.ui.PizzaMenu;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CalculateOrder {
     static List<MenuItem> checkoutCart = new ArrayList<>();
@@ -18,12 +19,10 @@ public class CalculateOrder {
 
     public static void displayCheckoutCart() {
         String cart = checkoutCart.stream()
-                .map(items -> items.getName() + " " + items.getPrice())
-                .toString();
+                .map(checkoutCart -> checkoutCart.getName() + " " + checkoutCart.getTotalPrice())
+                .collect(Collectors.joining(" "));
         System.out.println(cart);
-//        for (MenuItem items : item) {
-//            System.out.println(items);
-//        }
+        // order will print out but it is very primiative
     }
 
 }

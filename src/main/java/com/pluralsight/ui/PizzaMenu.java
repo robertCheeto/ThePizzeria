@@ -15,8 +15,9 @@ public class PizzaMenu {
     private static final boolean isRunning = true;
 
     public static void displayPizzaMenu() {
-        Pizza pizza = PizzaOrder.buildPizza("Pie 1", displayPizzaSizeMenu(), 10.99, displayPizzaCrustMenu(), displayPizzaMeatToppingsMenu());
+        Pizza pizza = PizzaOrder.buildPizza("Pie 1", displayPizzaSizeMenu(), 10.99, displayPizzaCrustMenu(), displayAllToppings());
         System.out.println(pizza);
+        //System.out.printf("You ordered a pizza with the following:\nCrust: %s\nSize: %s\nToppings: %s", pizza.getCrustType(), pizza.getSize(), pizza.getToppings());
     }
 
     public static String displayPizzaSizeMenu() {
@@ -91,9 +92,125 @@ public class PizzaMenu {
         System.out.print("Input option here: ");
     }
 
-    public static List<Toppings> displayPizzaMeatToppingsMenu() {
-        pizzaMeatToppingsMenu();
+    public static List<Toppings> displayAllToppings() {
         List<Toppings> toppingsList = new ArrayList<>();
+
+        System.out.println("Time to select your toppings!");
+        System.out.println("You must select a Sauce before adding other toppings like Cheese, Meats, etc.");
+        toppingsList.add(displaySaucesMenu());
+        toppingsList.add(displayCheeseToppingsMenu());
+//        toppingsList.add(displayPizzaMeatToppingsMenu());
+
+        return toppingsList;
+    }
+
+    public static Toppings displaySaucesMenu() {
+        Toppings sauce;
+        pizzaSaucesMenu();
+
+        while (isRunning) {
+            userInput = keyboard.nextInt();
+            keyboard.nextLine();
+
+            switch (userInput) {
+                case 1 ->
+                {
+                    sauce = (new Toppings("Marinara", 0));
+                    System.out.println("Marinara has been added");
+                    return sauce;
+                }
+                case 2 ->
+                {
+                    sauce = (new Toppings("Alferdo", 0));
+                    System.out.println("Alfredo has been added");
+                    return sauce;
+                }
+                case 3 -> {
+                    sauce = new Toppings("Pesto", 0);
+                    System.out.println("Pesto has been added");
+                    return sauce;
+                }
+                case 4 -> {
+                    sauce = new Toppings("BBQ", 0);
+                    System.out.println("BBQ Sauce has been added");
+                    return sauce;
+                }
+                case 5 -> {
+                    sauce = new Toppings("Buffalo Sauce", 0);
+                    System.out.println("Buffalo Sauce has been added");
+                    return sauce;
+                }
+                case 6 -> {
+                    sauce = new Toppings("Olive Oil", 0);
+                    System.out.println("Olive Oil has been added");
+                    return sauce;
+                }
+                default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+            }
+        }
+    }
+
+    public static void pizzaSaucesMenu() {
+        System.out.println("Any extra sauce?");
+        System.out.println("1) Marinara");
+        System.out.println("2) Alfredo");
+        System.out.println("3) Pesto");
+        System.out.println("4) BBQ");
+        System.out.println("5) Buffalo");
+        System.out.println("6) Olive Oil");
+        System.out.print("Enter input here: ");
+    }
+
+    public static Toppings displayCheeseToppingsMenu() {
+        pizzaCheeseToppingsMenu();
+        Toppings cheese;
+
+        while (isRunning) {
+            userInput = keyboard.nextInt();
+            keyboard.nextLine();
+
+            switch (userInput) {
+                case 1 -> {
+                    cheese = new Toppings("Mozzarella", 0);
+                    System.out.println("Mozzarella Cheese has been added");
+                    return cheese;
+                }
+                case 2 -> {
+                    cheese = new Toppings("Parmesan", 0);
+                    System.out.println("Parmesan Cheese has been added");
+                    return cheese;
+                }
+                case 3 -> {
+                    cheese = new Toppings("Ricotta", 0);
+                    System.out.println("Ricotta Cheese has been added");
+                    return cheese;
+                }
+                case 4 -> {
+                    cheese = new Toppings("Goat", 0);
+                    System.out.println("Goat Cheese has been added");
+                    return cheese;
+                }
+                case 5 -> {
+                    cheese = new Toppings("Buffalo", 0);
+                    System.out.println("Buffalo Cheese has been added");
+                    return cheese;
+                }
+                default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+            }
+        }
+    }
+    public static void pizzaCheeseToppingsMenu(){
+        System.out.println("How about some Cheese?");
+        System.out.println("1) Mozzarella");
+        System.out.println("2) Parmesan");
+        System.out.println("3) Ricotta");
+        System.out.println("4) Goat Cheese");
+        System.out.println("5) Buffalo");
+        System.out.print("Enter input here: ");
+    }
+
+    public static void displayPizzaMeatToppingsMenu() {
+        pizzaMeatToppingsMenu();
 
         while (isRunning) {
             userInput = keyboard.nextInt();
@@ -145,40 +262,6 @@ public class PizzaMenu {
         System.out.println("6) Meatball");
         System.out.print("Enter input here: ");
     }
-
-    public static void displayCheeseToppingsMenu() {
-        pizzaCheeseToppingsMenu();
-
-        while (isRunning) {
-            try {
-                userInput = keyboard.nextInt();
-                keyboard.nextLine();
-
-                switch (userInput) {
-                    case 1 -> System.out.println("Mozzarella Cheese has been added");
-                    case 2 -> System.out.println("Parmesan Cheese has been added");
-                    case 3 -> System.out.println("Ricotta Cheese has been added");
-                    case 4 -> System.out.println("Goat Cheese has been added");
-                    case 5 -> System.out.println("Buffalo Cheese has been added");
-                    default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
-                }
-
-            } catch (InputMismatchException e) {
-                System.out.println("Please enter a number...");
-                break;
-            }
-        }
-    }
-
-    public static void pizzaCheeseToppingsMenu(){
-        System.out.println("How about some Cheese?");
-        System.out.println("1) Mozzarella");
-        System.out.println("2) Parmesan");
-        System.out.println("3) Ricotta");
-        System.out.println("4) Goat Cheese");
-        System.out.println("5) Buffalo");
-        System.out.print("Enter input here: ");
-    }
 //
 //    public static void displayExtraToppingsMenu() {
 //        pizzaExtraToppingsMenu();
@@ -222,41 +305,6 @@ public class PizzaMenu {
 //        System.out.print("Enter input here: ");
 //    }
 //
-//    public static void displayExtraSaucesMenu() {
-//        pizzaExtraSaucesMenu();
-//
-//        while (isRunning) {
-//            try {
-//                userInput = keyboard.nextInt();
-//                keyboard.nextLine();
-//
-//                switch (userInput) {
-//                    case 1 -> System.out.println("Extra Marinara has been added");
-//                    case 2 -> System.out.println("Extra Alfredo has been added");
-//                    case 3 -> System.out.println("Extra Pesto has been added");
-//                    case 4 -> System.out.println("Extra BBQ Sauce has been added");
-//                    case 5 -> System.out.println("Extra Buffalo Sauce has been added");
-//                    case 6 -> System.out.println("Olive Oil has been added");
-//                    default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
-//                }
-//
-//            } catch (InputMismatchException e) {
-//                System.out.println("Please enter a number...");
-//                break;
-//            }
-//        }
-//    }
-//
-//    public static void pizzaExtraSaucesMenu() {
-//        System.out.println("Any extra sauce?");
-//        System.out.println("1) Marinara");
-//        System.out.println("2) Alfredo");
-//        System.out.println("3) Pesto");
-//        System.out.println("4) BBQ");
-//        System.out.println("5) Buffalo");
-//        System.out.println("6) Olive Oil");
-//        System.out.print("Enter input here: ");
-//    }
 //
 //    public static void displayAddOnsMenu() {
 //        pizzaAddOnMenu();

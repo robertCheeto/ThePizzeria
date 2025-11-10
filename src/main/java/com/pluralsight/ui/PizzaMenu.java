@@ -337,8 +337,7 @@ public class PizzaMenu {
         System.out.println("9) Anchovies");
         System.out.print("Enter input here: ");
     }
-//
-//
+
 //    public static void displayAddOnsMenu() {
 //        pizzaAddOnMenu();
 //
@@ -366,5 +365,4 @@ public class PizzaMenu {
 //        System.out.println("2) Parmesan Cheese Packet");
 //        System.out.print("Enter input here: ");
 //    }
-
 }

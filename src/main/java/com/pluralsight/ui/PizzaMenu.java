@@ -161,6 +161,7 @@ public class PizzaMenu {
         System.out.println("6) Olive Oil");
         System.out.print("Enter input here: ");
     }
+    // done up to here
 
     public static void displayExtraMenu() {
         String userChoice = keyboard.nextLine().toLowerCase().trim();
@@ -178,6 +179,7 @@ public class PizzaMenu {
         System.out.print("Enter input here (Y/N): ");
     }
 
+    // need to add "extra menu"
     public static Toppings displayCheeseToppingsMenu() {
         pizzaCheeseToppingsMenu();
         Toppings cheese;
@@ -219,14 +221,15 @@ public class PizzaMenu {
 
     public static void pizzaCheeseToppingsMenu(){
         System.out.println("How about some Cheese?");
-        System.out.println("1) Mozzarella");
-        System.out.println("2) Parmesan");
-        System.out.println("3) Ricotta");
-        System.out.println("4) Goat Cheese");
-        System.out.println("5) Buffalo");
+        System.out.println("1) Mozzarella | $0.75 / $1.50 / $2.25");
+        System.out.println("2) Parmesan | $0.75 / $1.50 / $2.25");
+        System.out.println("3) Ricotta | $0.75 / $1.50 / $2.25");
+        System.out.println("4) Goat Cheese | $0.75 / $1.50 / $2.25");
+        System.out.println("5) Buffalo | $0.75 / $1.50 / $2.25");
         System.out.print("Enter input here: ");
     }
 
+    // need to add "extra menu"
     public static Toppings displayPizzaMeatToppingsMenu() {
         pizzaMeatToppingsMenu();
         Toppings meat;
@@ -273,15 +276,16 @@ public class PizzaMenu {
 
     public static void pizzaMeatToppingsMenu() {
         System.out.println("Do you want any meats?");
-        System.out.println("1) Pepperoni");
-        System.out.println("2) Sausage");
-        System.out.println("3) Ham");
-        System.out.println("4) Bacon");
-        System.out.println("5) Chicken");
-        System.out.println("6) Meatball");
+        System.out.println("1) Pepperoni | $1.00 / $2.00 / $3.00");
+        System.out.println("2) Sausage | $1.00 / $2.00 / $3.00");
+        System.out.println("3) Ham | $1.00 / $2.00 / $3.00");
+        System.out.println("4) Bacon | $1.00 / $2.00 / $3.00");
+        System.out.println("5) Chicken | $1.00 / $2.00 / $3.00");
+        System.out.println("6) Meatball | $1.00 / $2.00 / $3.00");
         System.out.print("Enter input here: ");
     }
 
+    // need to add "extra menu"
     public static Toppings displayExtraToppingsMenu() {
         pizzaExtraToppingsMenu();
         Toppings extras;
@@ -292,42 +296,42 @@ public class PizzaMenu {
 
             switch (userInput) {
                 case 1 -> {
-                    extras = new Toppings("Onions", 0.3);
+                    extras = new Toppings("Onions", 0);
                     System.out.println("Onions have been added");
                     return extras;
                 }
                 case 2 -> {
-                    extras = new Toppings("Mushrooms", 0.3);
+                    extras = new Toppings("Mushrooms", 0);
                     System.out.println("Mushrooms have been added");
                     return extras;
                 }
                 case 3 -> {
-                    extras = new Toppings("Bell Peppers", 0.3);
+                    extras = new Toppings("Bell Peppers", 0);
                     System.out.println("Bell Peppers have been added");
                     return extras;
                 }
                 case 4 -> {
-                    extras = new Toppings("Olives", 0.3);
+                    extras = new Toppings("Olives", 0);
                     System.out.println("Olives have been added");
                     return extras;
                 }
                 case 5 -> {
-                    extras = new Toppings("Tomatoes", 0.3);
+                    extras = new Toppings("Tomatoes", 0);
                     System.out.println("Tomatoes have been added");
                     return extras;
                 }
                 case 6 -> {
-                    extras = new Toppings("Spinach", 0.3);
+                    extras = new Toppings("Spinach", 0);
                     System.out.println("Spinach has been added");
                     return extras;
                 }
                 case 7 -> {
-                    extras = new Toppings("Basil", 0.3);
+                    extras = new Toppings("Basil", 0);
                     System.out.println("Basil has been added");
                     return extras;
                 }
                 case 8 -> {
-                    extras = new Toppings("Pineapples", 0.3);
+                    extras = new Toppings("Pineapples", 0);
                     System.out.println("Pineapples have been added (even though they don't belong!)");
                     return extras;
                 }

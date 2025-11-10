@@ -162,6 +162,22 @@ public class PizzaMenu {
         System.out.print("Enter input here: ");
     }
 
+    public static void displayExtraMenu() {
+        String userChoice = keyboard.nextLine().toLowerCase().trim();
+        extraMenu();
+
+        switch (userChoice) {
+            case "y" -> System.out.println("continue");
+            case "n" -> System.out.println("nah");
+            default -> System.out.println("Enter a valid input");
+        }
+    }
+
+    public static void extraMenu() {
+        System.out.println("Do you want extra?");
+        System.out.print("Enter input here (Y/N): ");
+    }
+
     public static Toppings displayCheeseToppingsMenu() {
         pizzaCheeseToppingsMenu();
         Toppings cheese;
@@ -200,6 +216,7 @@ public class PizzaMenu {
             }
         }
     }
+
     public static void pizzaCheeseToppingsMenu(){
         System.out.println("How about some Cheese?");
         System.out.println("1) Mozzarella");

@@ -14,8 +14,8 @@ public class PizzaMenu {
     private static final boolean isRunning = true;
 
     public static void displayPizzaMenu() {
-        Pizza pizza = null;
-        pizza = PizzaOrder.buildPizza("Pie 1", displayPizzaSizeMenu(), 10, displayPizzaCrustMenu(), displayAllToppings());
+        Pizza pizza;
+        pizza = PizzaOrder.buildPizza("Pie 1", displayPizzaSizeMenu(), 20, displayPizzaCrustMenu(), displayAllToppings());
 //        System.out.println(pizza);
         System.out.println(pizza.getTotalPrice());
         //System.out.printf("You ordered a pizza with the following:\nCrust: %s\nSize: %s\nToppings: %s", pizza.getCrustType(), pizza.getSize(), pizza.getToppings());

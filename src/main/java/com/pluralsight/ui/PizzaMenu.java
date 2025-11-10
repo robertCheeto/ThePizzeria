@@ -100,6 +100,7 @@ public class PizzaMenu {
         toppingsList.add(displaySaucesMenu());
         toppingsList.add(displayCheeseToppingsMenu());
         toppingsList.add(displayPizzaMeatToppingsMenu());
+        toppingsList.add(displayExtraToppingsMenu());
 
         return toppingsList;
     }
@@ -263,48 +264,79 @@ public class PizzaMenu {
         System.out.println("6) Meatball");
         System.out.print("Enter input here: ");
     }
-//
-//    public static void displayExtraToppingsMenu() {
-//        pizzaExtraToppingsMenu();
-//
-//        while (isRunning) {
-//            try {
-//                userInput = keyboard.nextInt();
-//                keyboard.nextLine();
-//
-//                switch (userInput) {
-//                    case 1 -> System.out.println("Onions have been added");
-//                    case 2 -> System.out.println("Mushrooms have been added");
-//                    case 3 -> System.out.println("Bell Peppers have been added");
-//                    case 4 -> System.out.println("Olives have been added");
-//                    case 5 -> System.out.println("Tomatoes have been added");
-//                    case 6 -> System.out.println("Spinach has been added");
-//                    case 7 -> System.out.println("Basil has been added");
-//                    case 8 -> System.out.println("Pineapples have been added (even though they don't belong!)");
-//                    case 9 -> System.out.println("Anchovies have been added");
-//                    default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
-//                }
-//
-//            } catch (InputMismatchException e) {
-//                System.out.println("Please enter a number...");
-//                break;
-//            }
-//        }
-//    }
-//
-//    public static void pizzaExtraToppingsMenu() {
-//        System.out.println("Any extra toppings?");
-//        System.out.println("1) Onions");
-//        System.out.println("2) Mushrooms");
-//        System.out.println("3) Bell Peppers");
-//        System.out.println("4) Olives");
-//        System.out.println("5) Tomatoes");
-//        System.out.println("6) Spinach");
-//        System.out.println("7) Basil");
-//        System.out.println("8) Pineapple");
-//        System.out.println("9) Anchovies");
-//        System.out.print("Enter input here: ");
-//    }
+
+    public static Toppings displayExtraToppingsMenu() {
+        pizzaExtraToppingsMenu();
+        Toppings extras;
+
+        while (isRunning) {
+            userInput = keyboard.nextInt();
+            keyboard.nextLine();
+
+            switch (userInput) {
+                case 1 -> {
+                    extras = new Toppings("Onions", 0.5);
+                    System.out.println("Onions have been added");
+                    return extras;
+                }
+                case 2 -> {
+                    extras = new Toppings("Mushrooms", 0.5);
+                    System.out.println("Mushrooms have been added");
+                    return extras;
+                }
+                case 3 -> {
+                    extras = new Toppings("Bell Peppers", 0.5);
+                    System.out.println("Bell Peppers have been added");
+                    return extras;
+                }
+                case 4 -> {
+                    extras = new Toppings("Olives", 0.5);
+                    System.out.println("Olives have been added");
+                    return extras;
+                }
+                case 5 -> {
+                    extras = new Toppings("Tomatoes", 0.5);
+                    System.out.println("Tomatoes have been added");
+                    return extras;
+                }
+                case 6 -> {
+                    extras = new Toppings("Spinach", 0.5);
+                    System.out.println("Spinach has been added");
+                    return extras;
+                }
+                case 7 -> {
+                    extras = new Toppings("Basil", 0.5);
+                    System.out.println("Basil has been added");
+                    return extras;
+                }
+                case 8 -> {
+                    extras = new Toppings("Pineapples", 0.5);
+                    System.out.println("Pineapples have been added (even though they don't belong!)");
+                    return extras;
+                }
+                case 9 -> {
+                    extras = new Toppings("Anchovies", 0.5);
+                    System.out.println("Anchovies have been added");
+                    return extras;
+                }
+                default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+            }
+        }
+    }
+
+    public static void pizzaExtraToppingsMenu() {
+        System.out.println("Any extra toppings?");
+        System.out.println("1) Onions");
+        System.out.println("2) Mushrooms");
+        System.out.println("3) Bell Peppers");
+        System.out.println("4) Olives");
+        System.out.println("5) Tomatoes");
+        System.out.println("6) Spinach");
+        System.out.println("7) Basil");
+        System.out.println("8) Pineapple");
+        System.out.println("9) Anchovies");
+        System.out.print("Enter input here: ");
+    }
 //
 //
 //    public static void displayAddOnsMenu() {

@@ -99,7 +99,7 @@ public class PizzaMenu {
         System.out.println("You must select a Sauce before adding other toppings like Cheese, Meats, etc.");
         toppingsList.add(displaySaucesMenu());
         toppingsList.add(displayCheeseToppingsMenu());
-//        toppingsList.add(displayPizzaMeatToppingsMenu());
+        toppingsList.add(displayPizzaMeatToppingsMenu());
 
         return toppingsList;
     }
@@ -209,8 +209,9 @@ public class PizzaMenu {
         System.out.print("Enter input here: ");
     }
 
-    public static void displayPizzaMeatToppingsMenu() {
+    public static Toppings displayPizzaMeatToppingsMenu() {
         pizzaMeatToppingsMenu();
+        Toppings meat;
 
         while (isRunning) {
             userInput = keyboard.nextInt();
@@ -218,34 +219,34 @@ public class PizzaMenu {
 
             switch (userInput) {
                 case 1 -> {
-                    toppingsList.add(new Toppings("Pepperoni", 0.56));
+                    meat = new Toppings("Pepperoni", 0.5);
                     System.out.println("Pepperoni has been added");
-                    return toppingsList;
+                    return meat;
                 }
                 case 2 -> {
-                    toppingsList.add(new Toppings("Sausage", 0.56));
+                    meat = (new Toppings("Sausage", 0.56));
                     System.out.println("Sausage has been added");
-                    return toppingsList;
+                    return meat;
                 }
                 case 3 -> {
-                    toppingsList.add(new Toppings("Ham", 0.5));
+                    meat = (new Toppings("Ham", 0.5));
                     System.out.println("Ham has been added");
-                    return toppingsList;
+                    return meat;
                 }
                 case 4 -> {
-                    toppingsList.add(new Toppings("Bacon", 0.5));
+                    meat = (new Toppings("Bacon", 0.5));
                     System.out.println("Bacon has been added");
-                    return toppingsList;
+                    return meat;
                 }
                 case 5 -> {
-                    toppingsList.add(new Toppings("Chicken", 0.5));
+                    meat = (new Toppings("Chicken", 0.5));
                     System.out.println("Chicken has been added");
-                    return toppingsList;
+                    return meat;
                 }
                 case 6 -> {
-                    toppingsList.add(new Toppings("Meatballs", 0.5));
+                    meat = (new Toppings("Meatballs", 0.5));
                     System.out.println("Meatballs have been added");
-                    return toppingsList;
+                    return meat;
                 }
                 default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
             }

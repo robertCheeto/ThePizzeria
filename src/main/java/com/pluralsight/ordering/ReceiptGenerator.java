@@ -2,6 +2,7 @@ package com.pluralsight.ordering;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDateTime;
 
 public class ReceiptGenerator {
@@ -11,14 +12,17 @@ public class ReceiptGenerator {
             "\n" + localDateTime + "\n\n\n";
     /**
      * class that will take in data from the cart
-     * and write it to a receipt
-     * receipt needs to call the file the following format
+     * and write it to a receipt     *  needs to call the file the following format
      * "yyyyMMdd-hhmmss.txt"
      */
 
     public void printReceipt(CalculateOrder order) {
-        BufferedWriter bufWriter = new BufferedWriter(new FileWriter(FILE_LOCATION, false));
-        bufWriter.write(String.format());
+        try {
+            BufferedWriter bufWriter = new BufferedWriter(new FileWriter(FILE_LOCATION, false));
+            //bufWriter.write(String.format());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

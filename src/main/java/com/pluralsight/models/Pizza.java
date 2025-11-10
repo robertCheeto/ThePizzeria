@@ -32,13 +32,9 @@ public class Pizza extends MenuItem {
 
     @Override
     public String toString() {
-        return "Pizza{" +
-                "crustType='" + crustType + '\'' +
-                ", size='" + size + '\'' +
-                ", toppings=" + toppings +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                '}';
+        return "Pizza Contains: " + "Crust = " + crustType + " | " +
+                "Size '" + size + " | " + "Toppings = " + toppings +
+                " | " + "Name = " + name + " | " + "Price = " + price;
     }
 
     @Override

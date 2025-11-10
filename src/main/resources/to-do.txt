@@ -4,8 +4,8 @@ TO-DO:
 * need to either add a InputUtility/ConsoleUtility class to handle user inputs
 or keep adding Scanner and int userInput to new menus when needed
 * clean up names for PizzaMenu methods
-* finish working on order logic for the PizzaOrder | see if I can pass it into a "cart"
-and then receipt for the user to view
+* finish working on order logic for the PizzaOrder | see if I can pass it from cart
+to a receipt that will be printed out
 * need to add logic to let the user add multiple toppings to the pizza
 * need to add option to allow the user to skip adding toppings to their pizza
 * need to add option for the pizza to have stuffed crust

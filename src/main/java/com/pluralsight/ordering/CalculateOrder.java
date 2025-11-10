@@ -18,11 +18,21 @@ public class CalculateOrder {
     }
 
     public static void displayCheckoutCart() {
-        String cart = checkoutCart.stream()
-                .map(checkoutCart -> checkoutCart.getName() + " " + checkoutCart.getTotalPrice())
-                .collect(Collectors.joining(" "));
-        System.out.println(cart);
-        // order will print out but it is very primiative
+        for (MenuItem item : checkoutCart) {
+            System.out.printf(String.valueOf(item));
+            System.out.println();
+            System.out.printf("$%.2f",item.getTotalPrice());
+        }
+        //getFinalPrice();
+    }
+
+    public static void getFinalPrice() {
+        double finalPrice = 0;
+
+        for (MenuItem price : checkoutCart) {
+            finalPrice += price.getPrice();
+        }
+        System.out.println(finalPrice);
     }
 
 }

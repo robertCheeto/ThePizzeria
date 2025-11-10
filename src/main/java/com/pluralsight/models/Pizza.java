@@ -14,10 +14,6 @@ public class Pizza extends MenuItem {
         this.toppings = toppings;
     }
 
-    public Pizza(String name, double price) {
-        super(name, price);
-    }
-
     public String getCrustType() {
         return crustType;
     }
@@ -28,6 +24,19 @@ public class Pizza extends MenuItem {
 
     public List<Toppings> getToppings() {
         return toppings;
+    }
+
+    @Override
+    public double getPrice() {
+        if (this.size.equals("Personal Sized")) {
+            return this.price = 8.50;
+        }
+        else if (this.size.equals("Regular Sized")) {
+            return this.price = 12.00;
+        }
+        else {
+            return this.price = 16.50;
+        }
     }
 
     @Override
@@ -45,21 +54,21 @@ public class Pizza extends MenuItem {
 
         if (this.size.equals("Personal Sized")) {
             price = 8.50;
-            Double toppingsPrice = this.toppings.stream()
+            double toppingsPrice = this.toppings.stream()
                     .mapToDouble(Toppings::getPrice)
                     .reduce(0, (total, num) -> total += num);
             return price + toppingsPrice;
         }
         else if (this.size.equals("Regular Sized")) {
             price = 12;
-            Double toppingsPrice = this.toppings.stream()
+            double toppingsPrice = this.toppings.stream()
                     .mapToDouble(toppings -> toppings.getPrice() * regularMultiplier)
                     .reduce(0, (total, num) -> total += num);
             return price +toppingsPrice;
         }
         else {
             price = 16.50;
-            Double toppingsPrice = this.toppings.stream()
+            double toppingsPrice = this.toppings.stream()
                     .mapToDouble(toppings -> toppings.getPrice() * largeMultiplier)
                     .reduce(0, (total, num) -> total += num);
             return price + toppingsPrice;

@@ -39,6 +39,7 @@ public class Pizza extends MenuItem {
 
     @Override
     public void getTotalPrice() {
+        // need to start getting prices from the pizza size, and toppings here
 
     }
 }

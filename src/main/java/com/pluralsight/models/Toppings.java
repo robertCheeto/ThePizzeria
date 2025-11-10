@@ -19,6 +19,6 @@ public class Toppings {
 
     @Override
     public String toString() {
-        return "Toppings Selected: " + name + " | " + "Price $" + price;
+        return "Topping: " + name + " | " + "Price $" + price;
     }
 }

@@ -39,7 +39,6 @@ public class Pizza extends MenuItem {
 
     @Override
     public double getTotalPrice() {
-        // need to start getting prices from the pizza size, and toppings here
         double price = 0;
 
         if (this.size.equals("Personal Sized")) {

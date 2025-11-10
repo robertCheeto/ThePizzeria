@@ -2,6 +2,7 @@ package com.pluralsight.ui;
 
 import com.pluralsight.models.Pizza;
 import com.pluralsight.models.Toppings;
+import com.pluralsight.ordering.CalculateOrder;
 import com.pluralsight.ordering.PizzaOrder;
 
 import java.util.ArrayList;
@@ -10,15 +11,16 @@ import java.util.Scanner;
 
 public class PizzaMenu {
     private static final HomeScreen ui = new HomeScreen();
+    private static CalculateOrder calculateOrder = new CalculateOrder();
     private static final Scanner keyboard = new Scanner(System.in);
     private static int userInput;
     private static final boolean isRunning = true;
 
     public static void displayPizzaMenu() {
-        Pizza pizza = null;
-        pizza = PizzaOrder.buildPizza("Pie 1", displayPizzaSizeMenu(), 0, displayPizzaCrustMenu(), displayAllToppings());
+        Pizza pizza = PizzaOrder.buildPizza("Pie 1", displayPizzaSizeMenu(), 0, displayPizzaCrustMenu(), displayAllToppings());
         System.out.printf("Your Pizza: Size - %s ($%.2f) | Crust - %s\nToppings: %s ($%.2f)", pizza.getSize(), pizza.getPrice(), pizza.getCrustType(), pizza.getToppings(), pizza.getTotalPrice());
-        //System.out.printf("You ordered a pizza with the following:\nCrust: %s\nSize: %s\nToppings: %s", pizza.getCrustType(), pizza.getSize(), pizza.getToppings());
+        calculateOrder.addToCart(pizza);
+        ui.displayHome();
     }
 
     public static String displayPizzaSizeMenu() {

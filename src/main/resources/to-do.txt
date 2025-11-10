@@ -7,6 +7,7 @@ or keep adding Scanner and int userInput to new menus when needed
 * finish working on order logic for the PizzaOrder | see if I can pass it into a "cart"
 and then receipt for the user to view
 * need to add logic to let the user add multiple toppings to the pizza
+* need to add option to allow the user to skip adding toppings to their pizza
 * need to add option for the pizza to have stuffed crust
 * need to find a better way to have the addons added into the order
 * once when the above is finished, I am going to need to ask the user to return home and ask if they want to

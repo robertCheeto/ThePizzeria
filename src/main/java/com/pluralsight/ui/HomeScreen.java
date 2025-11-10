@@ -1,9 +1,12 @@
 package com.pluralsight.ui;
 
+import com.pluralsight.ordering.CalculateOrder;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class HomeScreen {
+    //private static CalculateOrder cart = new CalculateOrder();
     private static final Scanner keyboard = new Scanner(System.in);
     private static int userInput;
     private static final boolean isRunning = true;
@@ -20,6 +23,7 @@ public class HomeScreen {
 
                 switch (userInput) {
                     case 1 -> displayOrderMenu();
+                    case 2 -> displayCheckOutCart();
                     case 0 -> {
                         System.out.println("Program shutting down...");
                         keyboard.close();
@@ -39,15 +43,9 @@ public class HomeScreen {
 
     public void homeScreenMenu() {
         System.out.println("*** Welcome to Spezialetti's Pizzeria ***");
-        System.out.println("1) New Order\n0) Exit");
+        System.out.println("1) New Order\n2) Cart\n0) Exit");
         System.out.print("Input option here: ");
 
-    }
-
-    public void clearScreen() {
-        for (int i = 0; i < 30; i++) {
-            System.out.println();
-        }
     }
 
     public void orderScreenMenu() {
@@ -94,6 +92,21 @@ public class HomeScreen {
             }
         }
 
+    }
+
+    public void checkOutCart() {
+        clearScreen();
+        CalculateOrder.displayCheckoutCart();
+    }
+
+    public void displayCheckOutCart() {
+        checkOutCart();
+    }
+
+    public void clearScreen() {
+        for (int i = 0; i < 30; i++) {
+            System.out.println();
+        }
     }
 
 }

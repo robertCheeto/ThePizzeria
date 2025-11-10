@@ -15,20 +15,12 @@ public class PizzaMenu {
     private static final boolean isRunning = true;
 
     public static void displayPizzaMenu() {
-        List<Toppings> toppingsList = new ArrayList<>();
-        Toppings toppings = new Toppings("test", 10);
-
-        toppingsList.add(toppings);
-        displayPizzaSizeMenu();
-        displayPizzaCrustMenu();
-
-        Pizza pizza = PizzaOrder.buildPizza("Pie 1", displayPizzaSizeMenu(), 10.99, displayPizzaCrustMenu(), toppingsList);
+        Pizza pizza = PizzaOrder.buildPizza("Pie 1", displayPizzaSizeMenu(), 10.99, displayPizzaCrustMenu(), displayPizzaMeatToppingsMenu());
         System.out.println(pizza);
     }
 
     public static String displayPizzaSizeMenu() {
         pizzaSizeMenu();
-        String size = "";
 
         while (isRunning) {
             userInput = keyboard.nextInt();
@@ -38,15 +30,15 @@ public class PizzaMenu {
                 case 1 -> {
                     System.out.println("You selected a Personal Sized Pizza");
                     //displayPizzaMeatToppingsMenu();
-                    return size = "Personal Sized";
+                    return "Personal Sized";
                 }
                 case 2 -> {
                     System.out.println("You selected a Regular Sized Pizza");
-                    return size = "Regular Sized";
+                    return "Regular Sized";
                 }
                 case 3 -> {
                     System.out.println("You selected a Large Sized Pizza");
-                    return size = "Large Sized";
+                    return "Large Sized";
                 }
                 default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
             }
@@ -63,7 +55,6 @@ public class PizzaMenu {
 
     public static String displayPizzaCrustMenu() {
         pizzaCrustMenu();
-        String crust = "";
 
         while (isRunning) {
             userInput = keyboard.nextInt();
@@ -72,19 +63,19 @@ public class PizzaMenu {
             switch (userInput) {
                 case 1 -> {
                     System.out.println("You selected Thin Crust");
-                    return crust = "Thin Crust";
+                    return "Thin Crust";
                 }
                 case 2 -> {
                     System.out.println("You selected Regular Crust");
-                    return crust = "Regular Crust";
+                    return "Regular Crust";
                 }
                 case 3 -> {
                     System.out.println("You selected Thick Crust");
-                    return crust = "Thick Crust";
+                    return "Thick Crust";
                 }
                 case 4 -> {
                     System.out.println("You selected Cauliflower Crust");
-                    return crust = "Cauliflower Crust";
+                    return "Cauliflower Crust";
                 }
                 default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
             }
@@ -100,76 +91,94 @@ public class PizzaMenu {
         System.out.print("Input option here: ");
     }
 
-//    public static int displayPizzaMeatToppingsMenu() {
-//        pizzaMeatToppingsMenu();
-//
-//        while (isRunning) {
-//            try {
-//                userInput = keyboard.nextInt();
-//                keyboard.nextLine();
-//
-//                switch (userInput) {
-//                    case 1 -> System.out.println("Pepperoni has been added");
-//                    case 2 -> System.out.println("Sausage has been added");
-//                    case 3 -> System.out.println("Ham has been added");
-//                    case 4 -> System.out.println("Bacon has been added");
-//                    case 5 -> System.out.println("Chicken has been added");
-//                    case 6 -> System.out.println("Meatballs have been added");
-//                    default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
-//                }
-//
-//            } catch (InputMismatchException e) {
-//                System.out.println("Please enter a number...");
-//                break;
-//            }
-//        }
-//        return userInput;
-//    }
-//
-//    public static void pizzaMeatToppingsMenu() {
-//        System.out.println("Do you want any meats?");
-//        System.out.println("1) Pepperoni");
-//        System.out.println("2) Sausage");
-//        System.out.println("3) Ham");
-//        System.out.println("4) Bacon");
-//        System.out.println("5) Chicken");
-//        System.out.println("6) Meatball");
-//        System.out.print("Enter input here: ");
-//    }
-//
-//    public static void displayCheeseToppingsMenu() {
-//        pizzaCheeseToppingsMenu();
-//
-//        while (isRunning) {
-//            try {
-//                userInput = keyboard.nextInt();
-//                keyboard.nextLine();
-//
-//                switch (userInput) {
-//                    case 1 -> System.out.println("Mozzarella Cheese has been added");
-//                    case 2 -> System.out.println("Parmesan Cheese has been added");
-//                    case 3 -> System.out.println("Ricotta Cheese has been added");
-//                    case 4 -> System.out.println("Goat Cheese has been added");
-//                    case 5 -> System.out.println("Buffalo Cheese has been added");
-//                    default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
-//                }
-//
-//            } catch (InputMismatchException e) {
-//                System.out.println("Please enter a number...");
-//                break;
-//            }
-//        }
-//    }
-//
-//    public static void pizzaCheeseToppingsMenu(){
-//        System.out.println("How about some Cheese?");
-//        System.out.println("1) Mozzarella");
-//        System.out.println("2) Parmesan");
-//        System.out.println("3) Ricotta");
-//        System.out.println("4) Goat Cheese");
-//        System.out.println("5) Buffalo");
-//        System.out.print("Enter input here: ");
-//    }
+    public static List<Toppings> displayPizzaMeatToppingsMenu() {
+        pizzaMeatToppingsMenu();
+        List<Toppings> toppingsList = new ArrayList<>();
+
+        while (isRunning) {
+            userInput = keyboard.nextInt();
+            keyboard.nextLine();
+
+            switch (userInput) {
+                case 1 -> {
+                    toppingsList.add(new Toppings("Pepperoni", 0.56));
+                    System.out.println("Pepperoni has been added");
+                    return toppingsList;
+                }
+                case 2 -> {
+                    toppingsList.add(new Toppings("Sausage", 0.56));
+                    System.out.println("Sausage has been added");
+                    return toppingsList;
+                }
+                case 3 -> {
+                    toppingsList.add(new Toppings("Ham", 0.5));
+                    System.out.println("Ham has been added");
+                    return toppingsList;
+                }
+                case 4 -> {
+                    toppingsList.add(new Toppings("Bacon", 0.5));
+                    System.out.println("Bacon has been added");
+                    return toppingsList;
+                }
+                case 5 -> {
+                    toppingsList.add(new Toppings("Chicken", 0.5));
+                    System.out.println("Chicken has been added");
+                    return toppingsList;
+                }
+                case 6 -> {
+                    toppingsList.add(new Toppings("Meatballs", 0.5));
+                    System.out.println("Meatballs have been added");
+                    return toppingsList;
+                }
+                default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+            }
+        }
+    }
+
+    public static void pizzaMeatToppingsMenu() {
+        System.out.println("Do you want any meats?");
+        System.out.println("1) Pepperoni");
+        System.out.println("2) Sausage");
+        System.out.println("3) Ham");
+        System.out.println("4) Bacon");
+        System.out.println("5) Chicken");
+        System.out.println("6) Meatball");
+        System.out.print("Enter input here: ");
+    }
+
+    public static void displayCheeseToppingsMenu() {
+        pizzaCheeseToppingsMenu();
+
+        while (isRunning) {
+            try {
+                userInput = keyboard.nextInt();
+                keyboard.nextLine();
+
+                switch (userInput) {
+                    case 1 -> System.out.println("Mozzarella Cheese has been added");
+                    case 2 -> System.out.println("Parmesan Cheese has been added");
+                    case 3 -> System.out.println("Ricotta Cheese has been added");
+                    case 4 -> System.out.println("Goat Cheese has been added");
+                    case 5 -> System.out.println("Buffalo Cheese has been added");
+                    default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter a number...");
+                break;
+            }
+        }
+    }
+
+    public static void pizzaCheeseToppingsMenu(){
+        System.out.println("How about some Cheese?");
+        System.out.println("1) Mozzarella");
+        System.out.println("2) Parmesan");
+        System.out.println("3) Ricotta");
+        System.out.println("4) Goat Cheese");
+        System.out.println("5) Buffalo");
+        System.out.print("Enter input here: ");
+    }
 //
 //    public static void displayExtraToppingsMenu() {
 //        pizzaExtraToppingsMenu();

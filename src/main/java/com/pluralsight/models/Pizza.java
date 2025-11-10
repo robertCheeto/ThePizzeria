@@ -31,6 +31,17 @@ public class Pizza extends MenuItem {
     }
 
     @Override
+    public String toString() {
+        return "Pizza{" +
+                "crustType='" + crustType + '\'' +
+                ", size='" + size + '\'' +
+                ", toppings=" + toppings +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
+    @Override
     public void getTotalPrice() {
 
     }

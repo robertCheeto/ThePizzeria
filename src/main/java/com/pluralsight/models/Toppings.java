@@ -16,4 +16,12 @@ public class Toppings {
     public double getPrice() {
         return price;
     }
+
+    @Override
+    public String toString() {
+        return "Toppings{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

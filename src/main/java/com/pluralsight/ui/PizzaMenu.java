@@ -15,10 +15,9 @@ public class PizzaMenu {
     private static final boolean isRunning = true;
 
     public static void displayPizzaMenu() {
-        Pizza pizza;
-        pizza = PizzaOrder.buildPizza("Pie 1", displayPizzaSizeMenu(), 20, displayPizzaCrustMenu(), displayAllToppings());
-        System.out.printf("Your Pizza: Size - %s ($%.2f) | Crust - %s\nCheese: %s ($%.2f)", pizza.getSize(), pizza.getPrice(), pizza.getCrustType(), pizza.getToppings(), pizza.getTotalPrice());
-        System.out.println(pizza.getTotalPrice());
+        Pizza pizza = null;
+        pizza = PizzaOrder.buildPizza("Pie 1", displayPizzaSizeMenu(), 0, displayPizzaCrustMenu(), displayAllToppings());
+        System.out.printf("Your Pizza: Size - %s ($%.2f) | Crust - %s\nToppings: %s ($%.2f)", pizza.getSize(), pizza.getPrice(), pizza.getCrustType(), pizza.getToppings(), pizza.getTotalPrice());
         //System.out.printf("You ordered a pizza with the following:\nCrust: %s\nSize: %s\nToppings: %s", pizza.getCrustType(), pizza.getSize(), pizza.getToppings());
     }
 

@@ -13,7 +13,7 @@ public class Breadsticks extends MenuItem {
     }
 
     @Override
-    public void getTotalPrice() {
-
+    public double getTotalPrice() {
+        return 0;
     }
 }

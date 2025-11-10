@@ -17,5 +17,5 @@ public abstract class MenuItem {
         return price;
     }
 
-    public abstract void getTotalPrice();
+    public abstract double getTotalPrice();
 }

@@ -1,6 +1,7 @@
 package com.pluralsight.ui;
 
 import com.pluralsight.ordering.CalculateOrder;
+import com.pluralsight.ordering.ReceiptGenerator;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -97,6 +98,7 @@ public class HomeScreen {
     public void checkOutCart() {
         clearScreen();
         CalculateOrder.displayCheckoutCart();
+        ReceiptGenerator.printReceipt();
     }
 
     public void displayCheckOutCart() {

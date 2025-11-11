@@ -16,10 +16,11 @@ public class ReceiptGenerator {
      * "yyyyMMdd-hhmmss.txt"
      */
 
-    public void printReceipt(CalculateOrder order) {
+    public static void printReceipt(CalculateOrder order) {
         try {
             BufferedWriter bufWriter = new BufferedWriter(new FileWriter(FILE_LOCATION, false));
-            //bufWriter.write(String.format());
+            bufWriter.write(RECEIPT_HEADER);
+            bufWriter.write(order.toString());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

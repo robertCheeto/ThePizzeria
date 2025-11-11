@@ -16,15 +16,18 @@ public class ReceiptGenerator {
     private static final String FILE_NAME = formatDateTime + ".txt";
     private static final String FILE_PATH = FILE_LOCATION + FILE_NAME;
     private static final File receipt = new File(FILE_PATH);
-    private static final String RECEIPT_HEADER = "\t*** SPEZIALETTI'S PIZZERIA ***" +
-            "\n" + localDateTime + "\n\n\n";
+    private static String RECEIPT_HEADER = "\t*** SPEZIALETTI'S PIZZERIA ***" +
+            "\n" + formatDateTime + "\n\n\n";
 
 
     public static void printReceipt(CalculateOrder order) {
         try {
             BufferedWriter bufWriter = new BufferedWriter(new FileWriter(receipt, false));
             bufWriter.write(RECEIPT_HEADER);
-            bufWriter.write(order.toString());
+            bufWriter.newLine();
+            bufWriter.write(String.format(order.toString()));
+
+            bufWriter.close();
 
         } catch (IOException e) {
             throw new RuntimeException(e);

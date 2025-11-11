@@ -19,14 +19,15 @@ public class CalculateOrder {
             System.out.println();
             System.out.printf("$%.2f",item.getTotalPrice());
         }
-        //getFinalPrice();
+        System.out.print("\n\nTotal: $");
+        getFinalPrice();
     }
 
     public static void getFinalPrice() {
         double finalPrice = 0;
 
         for (MenuItem price : checkoutCart) {
-            finalPrice += price.getPrice();
+            finalPrice += price.getTotalPrice();
         }
         System.out.println(finalPrice);
     }

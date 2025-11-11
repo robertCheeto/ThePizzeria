@@ -10,7 +10,7 @@ import static com.pluralsight.ordering.ReceiptGenerator.displayReceipt;
 
 public class HomeScreen {
     private static CalculateOrder cart = new CalculateOrder();
-    private static PizzaMenu pizza = new PizzaMenu(cart);
+    private static final PizzaMenu pizza = new PizzaMenu(cart);
     private static final Scanner keyboard = new Scanner(System.in);
     private static int userInput;
     private static final boolean isRunning = true;

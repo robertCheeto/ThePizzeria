@@ -1,11 +1,15 @@
 package com.pluralsight.ordering;
 
+import com.pluralsight.models.MenuItem;
+
+import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class ReceiptGenerator {
     private static final LocalDateTime localDateTime = LocalDateTime.now();
@@ -24,8 +28,10 @@ public class ReceiptGenerator {
         try {
             BufferedWriter bufWriter = new BufferedWriter(new FileWriter(receipt, false));
             bufWriter.write(RECEIPT_HEADER);
-            bufWriter.newLine();
-            bufWriter.write(String.format(order.toString()));
+
+            for (MenuItem orders : order.getCheckOutCart()) {
+                bufWriter.write(String.format(orders.toString()));
+            }
 
             bufWriter.close();
 

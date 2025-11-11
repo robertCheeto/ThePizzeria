@@ -31,4 +31,8 @@ public class CalculateOrder {
         System.out.println(finalPrice);
     }
 
+    public List<MenuItem> getCheckOutCart() {
+         return checkoutCart;
+    }
+
 }

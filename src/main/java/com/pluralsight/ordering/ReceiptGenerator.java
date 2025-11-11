@@ -3,10 +3,7 @@ package com.pluralsight.ordering;
 import com.pluralsight.models.MenuItem;
 
 import java.awt.*;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -40,4 +37,19 @@ public class ReceiptGenerator {
         }
     }
 
+    public static void displayReceipt() {
+        try {
+            BufferedReader bufReader = new BufferedReader(new FileReader(receipt));
+
+            String input = "";
+
+            while ((input = bufReader.readLine()) != null) {
+                System.out.println(input);
+            }
+            bufReader.close();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -6,6 +6,8 @@ import com.pluralsight.ordering.ReceiptGenerator;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import static com.pluralsight.ordering.ReceiptGenerator.displayReceipt;
+
 public class HomeScreen {
     private static CalculateOrder cart = new CalculateOrder();
     private static PizzaMenu pizza = new PizzaMenu(cart);
@@ -26,7 +28,11 @@ public class HomeScreen {
                 switch (userInput) {
                     case 1 -> displayOrderMenu();
                     case 2 -> displayCheckOutCart();
-                    case 3 -> displayCheckOutReceipt();
+                    case 3 -> {
+                        System.out.println("Thank you for ordering!\nHere is a copy of your receipt!");
+                        displayCheckOutReceipt();
+                        displayReceipt();
+                    }
                     case 0 -> {
                         System.out.println("Program shutting down...");
                         keyboard.close();

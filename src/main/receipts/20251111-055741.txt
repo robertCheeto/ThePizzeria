@@ -1,0 +1,5 @@
+	*** SPEZIALETTI'S PIZZERIA ***
+20251111-055741
+
+
+Pizza Contains: Crust = Thin Crust | Size 'Personal Sized | Toppings = [Topping: Marinara | Price $0.0, Topping: Mozzarella | Price $0.75, Topping: Pepperoni | Price $1.0, Topping: Onions | Price $0.0] | Name = Pie 1 | Price = 8.5

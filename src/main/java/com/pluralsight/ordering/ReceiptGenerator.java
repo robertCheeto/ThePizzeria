@@ -1,26 +1,31 @@
 package com.pluralsight.ordering;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ReceiptGenerator {
-    private static final String FILE_LOCATION = "src/main/receipts";
-    private static LocalDateTime localDateTime = LocalDateTime.now();
+    private static final LocalDateTime localDateTime = LocalDateTime.now();
+    private static final DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss");
+    private static final String formatDateTime = localDateTime.format(format);
+
+    private static final String FILE_LOCATION = "src/main/receipts/";
+    private static final String FILE_NAME = formatDateTime + ".txt";
+    private static final String FILE_PATH = FILE_LOCATION + FILE_NAME;
+    private static final File receipt = new File(FILE_PATH);
     private static final String RECEIPT_HEADER = "\t*** SPEZIALETTI'S PIZZERIA ***" +
             "\n" + localDateTime + "\n\n\n";
-    /**
-     * class that will take in data from the cart
-     * and write it to a receipt     *  needs to call the file the following format
-     * "yyyyMMdd-hhmmss.txt"
-     */
+
 
     public static void printReceipt(CalculateOrder order) {
         try {
-            BufferedWriter bufWriter = new BufferedWriter(new FileWriter(FILE_LOCATION, false));
+            BufferedWriter bufWriter = new BufferedWriter(new FileWriter(receipt, false));
             bufWriter.write(RECEIPT_HEADER);
             bufWriter.write(order.toString());
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

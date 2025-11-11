@@ -11,10 +11,14 @@ import java.util.Scanner;
 
 public class PizzaMenu {
     private static final HomeScreen ui = new HomeScreen();
-    private static CalculateOrder calculateOrder = new CalculateOrder();
+    private static CalculateOrder calculateOrder;
     private static final Scanner keyboard = new Scanner(System.in);
     private static int userInput;
     private static final boolean isRunning = true;
+
+    public PizzaMenu(CalculateOrder cart) {
+        calculateOrder = cart;
+    }
 
     public static void displayPizzaMenu() {
         Pizza pizza = PizzaOrder.buildPizza("Pie 1", displayPizzaSizeMenu(), 0, displayPizzaCrustMenu(), displayAllToppings());

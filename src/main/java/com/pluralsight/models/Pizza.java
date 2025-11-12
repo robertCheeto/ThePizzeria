@@ -14,16 +14,32 @@ public class Pizza extends MenuItem {
         this.toppings = toppings;
     }
 
+    public Pizza(String name, double price) {
+        super(name, price);
+    }
+
     public String getCrustType() {
         return crustType;
+    }
+
+    public void setCrustType(String crustType) {
+        this.crustType = crustType;
     }
 
     public String getSize() {
         return size;
     }
 
+    public void setSize(String size) {
+        this.size = size;
+    }
+
     public List<Toppings> getToppings() {
         return toppings;
+    }
+
+    public void setToppings(List<Toppings> toppings) {
+        this.toppings = toppings;
     }
 
     @Override

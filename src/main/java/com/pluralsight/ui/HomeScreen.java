@@ -9,7 +9,7 @@ public class HomeScreen {
     private static CalculateOrder cart = new CalculateOrder();
     private static final PizzaMenu pizza = new PizzaMenu(cart);
     private static final DrinkMenu drink = new DrinkMenu(cart);
-    //private static final BreadsticksMenu breadsticks = new BreadsticksMenu(cart);
+    private static final BreadsticksMenu breadsticks = new BreadsticksMenu(cart);
     private static final boolean isRunning = true;
 
     public void displayHome() {
@@ -69,10 +69,7 @@ public class HomeScreen {
                 case 3 -> {
                     System.out.println("Adding Breadsticks to cart...");
                     Utilities.clearScreen();
-                    //BreadsticksMenu.addBreadsticks();
-                    // need to see if I can just get away with adding breadsticks
-                    // could do a "custom" option where the user selects regular
-                    //breadsticks, cheese-filled sticks, etc.
+                    BreadsticksMenu.buildSticks();
                     System.out.println("Need to start building the breadsticks method");
                 }
                 case 4 -> {

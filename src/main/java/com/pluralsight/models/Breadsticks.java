@@ -1,19 +1,32 @@
 package com.pluralsight.models;
 
 public class Breadsticks extends MenuItem {
-    private String size;
+    private String type;
 
-    public Breadsticks(String name, double price, String size) {
+    public Breadsticks(String name, double price, String type) {
         super(name, price);
-        this.size = size;
+        this.type = type;
     }
 
-    public String getSize() {
-        return size;
+    public Breadsticks(String name, double price) {
+        super(name, price);
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return type;
     }
 
     @Override
     public double getTotalPrice() {
-        return 0;
+        return 1.50;
     }
 }

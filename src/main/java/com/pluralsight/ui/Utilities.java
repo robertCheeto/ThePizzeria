@@ -5,7 +5,8 @@ import java.util.Scanner;
 
 public class Utilities {
     private static final Scanner keyboard = new Scanner(System.in);
-    private static final String RETURN_TO_MENU_MESSAGE = "\nPress Enter to return to menu";
+    private static final String RETURN_TO_MENU_MESSAGE = "\nPress Enter to return to menu!";
+    private static final String PRESS_ENTER_TO_CONTINUE = "\nPress Enter to Continue!";
     private static final int INVALID_INPUT = -1;
 
     public static int getUserInput() {
@@ -35,7 +36,12 @@ public class Utilities {
     }
 
     public static void waitForEnter() {
-        System.out.println(RETURN_TO_MENU_MESSAGE);
+        System.out.print(RETURN_TO_MENU_MESSAGE);
+        keyboard.nextLine();
+    }
+
+    public static void pressEnterToContinue() {
+        System.out.print(PRESS_ENTER_TO_CONTINUE);
         keyboard.nextLine();
     }
 

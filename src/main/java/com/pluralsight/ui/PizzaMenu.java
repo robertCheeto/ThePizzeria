@@ -119,21 +119,19 @@ public class PizzaMenu {
         System.out.println("Time to select your toppings!");
         toppingsList.add(displaySaucesMenu());
         toppingsList.add(displayCheeseToppingsMenu());
-        toppingsList.add(displayPizzaMeatToppingsMenu());
-        toppingsList.add(displayExtraToppingsMenu());
+        toppingsList.add(displayMeatToppingsMenu());
+        toppingsList.add(displayRegularToppingsMenu());
 
         System.out.println("Would you like extra toppings on your pizza?");
         System.out.print("Enter input here (Y/N): ");
-
-        keyboard.nextLine();
         String userChoice = keyboard.nextLine().toLowerCase().trim();
 
         if (userChoice.equalsIgnoreCase("y")) {
             toppingsList.add(displayExtraCheeseMenu());
-            //toppingsList.add(displayExtraMeatMenu());
-            //toppingsList.add(displayExtraExtraToppingsMenu());
+            toppingsList.add(displayExtraMeatMenu());
+            toppingsList.add(displayRegularToppingsMenu());
+            toppingsList.add(displayAddOnsMenu());
         }
-
         return toppingsList;
     }
 
@@ -214,7 +212,7 @@ public class PizzaMenu {
 //    }
 
     public static Toppings displayCheeseToppingsMenu() {
-        pizzaCheeseToppingsMenu();
+        cheeseToppingsMenu();
         Toppings cheese;
 
         while (isRunning) {
@@ -252,13 +250,30 @@ public class PizzaMenu {
                     System.out.println("Buffalo Cheese has been added");
                     return cheese;
                 }
+                case 0 -> {
+                    cheese = new Toppings("No Cheese", 0);
+                    ui.clearScreen();
+                    System.out.println("No cheese for you!");
+                    return cheese;
+                }
                 default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
             }
         }
     }
 
+    public static void cheeseToppingsMenu(){
+        System.out.println("How about some Cheese?");
+        System.out.println("1) Mozzarella | $0.75 / $1.50 / $2.25");
+        System.out.println("2) Parmesan | $0.75 / $1.50 / $2.25");
+        System.out.println("3) Ricotta | $0.75 / $1.50 / $2.25");
+        System.out.println("4) Goat Cheese | $0.75 / $1.50 / $2.25");
+        System.out.println("5) Buffalo | $0.75 / $1.50 / $2.25");
+        System.out.println("0) No Cheese");
+        System.out.print("Enter input here: ");
+    }
+
     public static Toppings displayExtraCheeseMenu() {
-        pizzaCheeseToppingsMenu();
+        extraCheeseToppingsMenu();
         Toppings cheese;
 
         while (isRunning) {
@@ -296,24 +311,30 @@ public class PizzaMenu {
                     System.out.println("Extra Buffalo Cheese has been added");
                     return cheese;
                 }
+                case 0 -> {
+                    cheese = new Toppings("No Cheese", 0);
+                    ui.clearScreen();
+                    System.out.println("No extra cheese for you!");
+                    return cheese;
+                }
                 default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
             }
         }
     }
 
-    public static void pizzaCheeseToppingsMenu(){
-        System.out.println("How about some Cheese?");
-        System.out.println("1) Mozzarella | $0.75 / $1.50 / $2.25");
-        System.out.println("2) Parmesan | $0.75 / $1.50 / $2.25");
-        System.out.println("3) Ricotta | $0.75 / $1.50 / $2.25");
-        System.out.println("4) Goat Cheese | $0.75 / $1.50 / $2.25");
-        System.out.println("5) Buffalo | $0.75 / $1.50 / $2.25");
+    public static void extraCheeseToppingsMenu(){
+        System.out.println("More Cheese?");
+        System.out.println("1) Mozzarella | $0.30 / $0.60 / $0.90");
+        System.out.println("2) Parmesan | $0.30 / $0.60 / $0.90");
+        System.out.println("3) Ricotta | $0.30 / $0.60 / $0.90");
+        System.out.println("4) Goat Cheese | $0.30 / $0.60 / $0.90");
+        System.out.println("5) Buffalo | $0.30 / $0.60 / $0.90");
+        System.out.println("0) No Extra Cheese");
         System.out.print("Enter input here: ");
     }
 
-    // need to add "extra menu"
-    public static Toppings displayPizzaMeatToppingsMenu() {
-        pizzaMeatToppingsMenu();
+    public static Toppings displayMeatToppingsMenu() {
+        meatToppingsMenu();
         Toppings meat;
 
         while (isRunning) {
@@ -357,12 +378,18 @@ public class PizzaMenu {
                     System.out.println("Meatballs have been added");
                     return meat;
                 }
+                case 0 -> {
+                    meat = new Toppings("No Meats", 0);
+                    ui.clearScreen();
+                    System.out.println("No meats were added.");
+                    return meat;
+                }
                 default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
             }
         }
     }
 
-    public static void pizzaMeatToppingsMenu() {
+    public static void meatToppingsMenu() {
         System.out.println("Do you want any meats?");
         System.out.println("1) Pepperoni | $1.00 / $2.00 / $3.00");
         System.out.println("2) Sausage | $1.00 / $2.00 / $3.00");
@@ -370,12 +397,80 @@ public class PizzaMenu {
         System.out.println("4) Bacon | $1.00 / $2.00 / $3.00");
         System.out.println("5) Chicken | $1.00 / $2.00 / $3.00");
         System.out.println("6) Meatball | $1.00 / $2.00 / $3.00");
+        System.out.println("0) No Meat");
         System.out.print("Enter input here: ");
     }
 
-    // need to add "extra menu"
-    public static Toppings displayExtraToppingsMenu() {
-        pizzaExtraToppingsMenu();
+    public static Toppings displayExtraMeatMenu() {
+        extraMeatToppingsMenu();
+        Toppings meat;
+
+        while (isRunning) {
+            userInput = keyboard.nextInt();
+            keyboard.nextLine();
+
+            switch (userInput) {
+                case 1 -> {
+                    meat = new Toppings("Pepperoni", 0.5);
+                    ui.clearScreen();
+                    System.out.println("Pepperoni has been added");
+                    return meat;
+                }
+                case 2 -> {
+                    meat = (new Toppings("Sausage", 0.5));
+                    ui.clearScreen();
+                    System.out.println("Sausage has been added");
+                    return meat;
+                }
+                case 3 -> {
+                    meat = (new Toppings("Ham", 0.5));
+                    ui.clearScreen();
+                    System.out.println("Ham has been added");
+                    return meat;
+                }
+                case 4 -> {
+                    meat = (new Toppings("Bacon", 0.5));
+                    ui.clearScreen();
+                    System.out.println("Bacon has been added");
+                    return meat;
+                }
+                case 5 -> {
+                    meat = (new Toppings("Chicken", 0.5));
+                    ui.clearScreen();
+                    System.out.println("Chicken has been added");
+                    return meat;
+                }
+                case 6 -> {
+                    meat = (new Toppings("Meatballs", 0.5));
+                    ui.clearScreen();
+                    System.out.println("Meatballs have been added");
+                    return meat;
+                }
+                case 7 -> {
+                    meat = new Toppings("No Extra Meats", 0);
+                    ui.clearScreen();
+                    System.out.println("No extra meats were added.");
+                    return meat;
+                }
+                default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+            }
+        }
+    }
+
+    public static void extraMeatToppingsMenu() {
+        System.out.println("Do you want any meats?");
+        System.out.println("1) Pepperoni | $0.50 / $1.00 / $1.50");
+        System.out.println("2) Sausage | $0.50 / $1.00 / $1.50");
+        System.out.println("3) Ham | $0.50 / $1.00 / $1.50");
+        System.out.println("4) Bacon | $0.50 / $1.00 / $1.50");
+        System.out.println("5) Chicken | $0.50 / $1.00 / $1.50");
+        System.out.println("6) Meatball | $0.50 / $1.00 / $1.50");
+        System.out.println("0) No Meat");
+        System.out.print("Enter input here: ");
+    }
+
+    public static Toppings displayRegularToppingsMenu() {
+        regularToppingsMenu();
         Toppings extras;
 
         while (isRunning) {
@@ -437,12 +532,18 @@ public class PizzaMenu {
                     System.out.println("Anchovies have been added");
                     return extras;
                 }
+                case 0 -> {
+                    extras = new Toppings("No Extra Toppings", 0);
+                    ui.clearScreen();
+                    System.out.println("No extra toppings were added");
+                    return extras;
+                }
                 default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
             }
         }
     }
 
-    public static void pizzaExtraToppingsMenu() {
+    public static void regularToppingsMenu() {
         System.out.println("Any extra toppings?");
         System.out.println("1) Onions");
         System.out.println("2) Mushrooms");
@@ -453,34 +554,41 @@ public class PizzaMenu {
         System.out.println("7) Basil");
         System.out.println("8) Pineapple");
         System.out.println("9) Anchovies");
+        System.out.println("0) No extra toppings");
         System.out.print("Enter input here: ");
     }
 
-//    public static void displayAddOnsMenu() {
-//        pizzaAddOnMenu();
-//
-//        while (isRunning) {
-//            try {
-//                userInput = keyboard.nextInt();
-//                keyboard.nextLine();
-//
-//                switch (userInput) {
-//                    case 1 -> System.out.println("A Packet of Red Pepper Flakes has been added");
-//                    case 2 -> System.out.println("A Packet of Parmesan Cheese has been added");
-//                    default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
-//                }
-//
-//            } catch (InputMismatchException e) {
-//                System.out.println("Please enter a number...");
-//                break;
-//            }
-//        }
-//    }
-//
-//    public static void pizzaAddOnMenu() {
-//        System.out.println("Any side addons?");
-//        System.out.println("1) Red Pepper Flake Packet");
-//        System.out.println("2) Parmesan Cheese Packet");
-//        System.out.print("Enter input here: ");
-//    }
+
+    public static Toppings displayAddOnsMenu() {
+        pizzaAddOnMenu();
+        Toppings addOns;
+
+        while (isRunning) {
+            userInput = keyboard.nextInt();
+            keyboard.nextLine();
+
+            switch (userInput) {
+                case 1 -> {
+                    addOns = new Toppings("Red Pepper Flakes", 0);
+                    ui.clearScreen();
+                    System.out.println("A Packet of Red Pepper Flakes has been added");
+                    return addOns;
+                }
+                case 2 -> {
+                    addOns = new Toppings("Packet of Parmesan Cheese", 0);
+                    ui.clearScreen();
+                    System.out.println("A Packet of Parmesan Cheese has been added");
+                    return addOns;
+                }
+                default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+            }
+        }
+    }
+
+    public static void pizzaAddOnMenu() {
+        System.out.println("Any side addons?");
+        System.out.println("1) Red Pepper Flake Packet");
+        System.out.println("2) Parmesan Cheese Packet");
+        System.out.print("Enter input here: ");
+    }
 }

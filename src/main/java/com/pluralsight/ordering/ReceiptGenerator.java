@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ReceiptGenerator {
     private static final LocalDateTime localDateTime = LocalDateTime.now();
-    private static final DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss");
+    private static final DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd_hh:mm:ss");
     private static final String formatDateTime = localDateTime.format(format);
 
     private static final String FILE_LOCATION = "src/main/receipts/";
@@ -18,10 +18,11 @@ public class ReceiptGenerator {
     private static final String FILE_PATH = FILE_LOCATION + FILE_NAME;
     private static final File receipt = new File(FILE_PATH);
     private static String RECEIPT_HEADER = "\t*** SPEZIALETTI'S PIZZERIA ***" +
-            "\n" + formatDateTime + "\n\n\n";
+            "\n" + formatDateTime + "\n\n";
 
 
     public static void printReceipt(CalculateOrder order) {
+        // need to add a check to see if the receipt folder exists
         try {
             BufferedWriter bufWriter = new BufferedWriter(new FileWriter(receipt, false));
             bufWriter.write(RECEIPT_HEADER);

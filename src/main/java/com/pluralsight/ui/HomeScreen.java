@@ -8,6 +8,8 @@ import static com.pluralsight.ordering.ReceiptGenerator.displayReceipt;
 public class HomeScreen {
     private static CalculateOrder cart = new CalculateOrder();
     private static final PizzaMenu pizza = new PizzaMenu(cart);
+    private static final DrinkMenu drink = new DrinkMenu(cart);
+    //private static final BreadsticksMenu breadsticks = new BreadsticksMenu(cart);
     private static final boolean isRunning = true;
 
     public void displayHome() {
@@ -61,7 +63,7 @@ public class HomeScreen {
                 case 2 -> {
                     System.out.println("Adding Drink to cart...");
                     Utilities.clearScreen();
-                    //DrinkMenu.buildDrink();
+                    DrinkMenu.buildDrink();
                     System.out.println("Need to start building the Drink Method");
                 }
                 case 3 -> {

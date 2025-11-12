@@ -3,7 +3,6 @@ package com.pluralsight.ui;
 import com.pluralsight.models.Pizza;
 import com.pluralsight.models.Toppings;
 import com.pluralsight.ordering.CalculateOrder;
-import com.pluralsight.ordering.PizzaOrder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +35,13 @@ public class PizzaMenu {
         ui.displayHome();
     }
 
+    public static void pizzaSizeMenu() {
+        System.out.println("What size pizza do you want?");
+        System.out.println("1) Personal 8\" ($8.50)");
+        System.out.println("2) Regular 12\" ($12.00)");
+        System.out.println("3) Large 16\" ($16.50)");
+        System.out.print("Input option here: ");
+    }
 
     public static String displayPizzaSizeMenu() {
         pizzaSizeMenu();
@@ -65,11 +71,12 @@ public class PizzaMenu {
         }
     }
 
-    public static void pizzaSizeMenu() {
-        System.out.println("What size pizza do you want?");
-        System.out.println("1) Personal 8\" ($8.50)");
-        System.out.println("2) Regular 12\" ($12.00)");
-        System.out.println("3) Large 16\" ($16.50)");
+    public static void pizzaCrustMenu() {
+        System.out.println("What type of crust do you want on your pizza?");
+        System.out.println("1) Thin Crust");
+        System.out.println("2) Regular Crust");
+        System.out.println("3) Thick Crust");
+        System.out.println("4) Cauliflower Crust");
         System.out.print("Input option here: ");
     }
 
@@ -106,15 +113,6 @@ public class PizzaMenu {
         }
     }
 
-    public static void pizzaCrustMenu() {
-        System.out.println("What type of crust do you want on your pizza?");
-        System.out.println("1) Thin Crust");
-        System.out.println("2) Regular Crust");
-        System.out.println("3) Thick Crust");
-        System.out.println("4) Cauliflower Crust");
-        System.out.print("Input option here: ");
-    }
-
     public static List<Toppings> displayAllToppings() {
         List<Toppings> toppingsList = new ArrayList<>();
 
@@ -124,7 +122,30 @@ public class PizzaMenu {
         toppingsList.add(displayPizzaMeatToppingsMenu());
         toppingsList.add(displayExtraToppingsMenu());
 
+        System.out.println("Would you like extra toppings on your pizza?");
+        System.out.print("Enter input here (Y/N): ");
+
+        keyboard.nextLine();
+        String userChoice = keyboard.nextLine().toLowerCase().trim();
+
+        if (userChoice.equalsIgnoreCase("y")) {
+            toppingsList.add(displayExtraCheeseMenu());
+            //toppingsList.add(displayExtraMeatMenu());
+            //toppingsList.add(displayExtraExtraToppingsMenu());
+        }
+
         return toppingsList;
+    }
+
+    public static void pizzaSaucesMenu() {
+        System.out.println("Any extra sauce?");
+        System.out.println("1) Marinara");
+        System.out.println("2) Alfredo");
+        System.out.println("3) Pesto");
+        System.out.println("4) BBQ");
+        System.out.println("5) Buffalo");
+        System.out.println("6) Olive Oil");
+        System.out.print("Enter input here: ");
     }
 
     public static Toppings displaySaucesMenu() {
@@ -176,35 +197,22 @@ public class PizzaMenu {
         }
     }
 
-    public static void pizzaSaucesMenu() {
-        System.out.println("Any extra sauce?");
-        System.out.println("1) Marinara");
-        System.out.println("2) Alfredo");
-        System.out.println("3) Pesto");
-        System.out.println("4) BBQ");
-        System.out.println("5) Buffalo");
-        System.out.println("6) Olive Oil");
-        System.out.print("Enter input here: ");
-    }
-    // done up to here
+//    public static void displayExtraMenu() {
+//        String userChoice = keyboard.nextLine().toLowerCase().trim();
+//
+//        switch (userChoice) {
+//            case "y" -> {
+//                System.out.println("continuing");
+//                displayExtraCheeseMenu();
+//            }
+//            case "n" -> {
+//                System.out.println("nah");
+//                displayExtraCheeseMenu();
+//            }
+//            default -> System.out.println("Enter a valid input");
+//        }
+//    }
 
-    public static void displayExtraMenu() {
-        String userChoice = keyboard.nextLine().toLowerCase().trim();
-        extraMenu();
-
-        switch (userChoice) {
-            case "y" -> System.out.println("continue");
-            case "n" -> System.out.println("nah");
-            default -> System.out.println("Enter a valid input");
-        }
-    }
-
-    public static void extraMenu() {
-        System.out.println("Do you want extra?");
-        System.out.print("Enter input here (Y/N): ");
-    }
-
-    // need to add "extra menu"
     public static Toppings displayCheeseToppingsMenu() {
         pizzaCheeseToppingsMenu();
         Toppings cheese;
@@ -242,6 +250,50 @@ public class PizzaMenu {
                     cheese = new Toppings("Buffalo", 0.75);
                     ui.clearScreen();
                     System.out.println("Buffalo Cheese has been added");
+                    return cheese;
+                }
+                default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+            }
+        }
+    }
+
+    public static Toppings displayExtraCheeseMenu() {
+        pizzaCheeseToppingsMenu();
+        Toppings cheese;
+
+        while (isRunning) {
+            userInput = keyboard.nextInt();
+            keyboard.nextLine();
+
+            switch (userInput) {
+                case 1 -> {
+                    cheese = new Toppings("Mozzarella", 0.3);
+                    ui.clearScreen();
+                    System.out.println("Extra Mozzarella Cheese has been added");
+                    return cheese;
+                }
+                case 2 -> {
+                    cheese = new Toppings("Parmesan", 0.3);
+                    ui.clearScreen();
+                    System.out.println("Extra Parmesan Cheese has been added");
+                    return cheese;
+                }
+                case 3 -> {
+                    cheese = new Toppings("Ricotta", 0.3);
+                    ui.clearScreen();
+                    System.out.println("Extra Ricotta Cheese has been added");
+                    return cheese;
+                }
+                case 4 -> {
+                    cheese = new Toppings("Goat", 0.3);
+                    ui.clearScreen();
+                    System.out.println("Extra Goat Cheese has been added");
+                    return cheese;
+                }
+                case 5 -> {
+                    cheese = new Toppings("Buffalo", 0.3);
+                    ui.clearScreen();
+                    System.out.println("Extra Buffalo Cheese has been added");
                     return cheese;
                 }
                 default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");

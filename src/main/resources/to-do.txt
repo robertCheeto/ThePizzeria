@@ -10,3 +10,4 @@ add a drink, breadsticks, checkout, or cancel the order
 * build out DrinkMenu and DrinkOrder
 * see if Breadsticks can just be added "as is" or take the time to do custom options for breadsticks (cheese-filled, etc)
 * update README file with latest information of the project
+* work on displayCheckOutCart() in HomeScreen to have information displayed in a "better" way

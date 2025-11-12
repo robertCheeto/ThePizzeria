@@ -31,6 +31,11 @@ public class Drink extends MenuItem {
     }
 
     @Override
+    public String toString() {
+        return "Drink: " + size + " " + flavor;
+    }
+
+    @Override
     public double getTotalPrice() {
         if (this.size.equals("Small")) {
             return this.price = 2.00;

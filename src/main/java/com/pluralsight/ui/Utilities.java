@@ -20,13 +20,18 @@ public class Utilities {
     }
 
     public static int getUserIntInput(String prompt) {
-        System.out.println(prompt);
+        System.out.print(prompt);
         return getUserInput();
     }
 
-    public static String getUserString(String promt) {
-        System.out.println(promt);
-        return keyboard.nextLine();
+    public static String getUserString(String prompt) {
+        System.out.print(prompt);
+        return keyboard.nextLine().trim();
+    }
+
+    public static String getSpecificString(String prompt) {
+        System.out.print(prompt);
+        return keyboard.nextLine().toLowerCase().trim();
     }
 
     public static void waitForEnter() {

@@ -3,11 +3,9 @@ in-class project that uses interfaces and multiple menu UIs to reference - https
 TO-DO:
 * got the cart item to print to the receipt, need to work on an
 @Override toString() to format the receipt properly
-* WORKING HERE*  need to add option for the pizza to have stuffed crust
-* need to find a better way to have the addons added into the order
-* once when the above is finished, I am going to need to ask the user to return home and ask if they want to
-add a drink, breadsticks, checkout, or cancel the order
-* build out DrinkMenu and DrinkOrder
-* see if Breadsticks can just be added "as is" or take the time to do custom options for breadsticks (cheese-filled, etc)
+* need to add option for the pizza to have stuffed crust
+* need to find a better way to have the addons added into the order (formatting Toppings toString most likely)
 * update README file with latest information of the project
 * work on displayCheckOutCart() in HomeScreen to have information displayed in a "better" way
+* add logic to "Check out" where if the cart is empty, the user will not be allowed to check out and generate a receipt
+* add a check for the print receipt to see if a folder exists before printing out the receipt text file

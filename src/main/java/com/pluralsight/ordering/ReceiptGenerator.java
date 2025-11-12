@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ReceiptGenerator {
     private static final LocalDateTime localDateTime = LocalDateTime.now();
-    private static final DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd_hh:mm:ss");
+    private static final DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss");
     private static final String formatDateTime = localDateTime.format(format);
 
     private static final String FILE_LOCATION = "src/main/receipts/";

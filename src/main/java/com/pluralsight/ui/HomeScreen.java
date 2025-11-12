@@ -61,11 +61,16 @@ public class HomeScreen {
                 case 2 -> {
                     System.out.println("Adding Drink to cart...");
                     Utilities.clearScreen();
+                    //DrinkMenu.buildDrink();
                     System.out.println("Need to start building the Drink Method");
                 }
                 case 3 -> {
                     System.out.println("Adding Breadsticks to cart...");
                     Utilities.clearScreen();
+                    //BreadsticksMenu.addBreadsticks();
+                    // need to see if I can just get away with adding breadsticks
+                    // could do a "custom" option where the user selects regular
+                    //breadsticks, cheese-filled sticks, etc.
                     System.out.println("Need to start building the breadsticks method");
                 }
                 case 4 -> {

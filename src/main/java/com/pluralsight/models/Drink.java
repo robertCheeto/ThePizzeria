@@ -10,16 +10,36 @@ public class Drink extends MenuItem {
         this.size = size;
     }
 
+    public Drink(String name, double price) {
+        super(name, price);
+    }
+
     public String getFlavor() {
         return flavor;
+    }
+
+    public void setFlavor(String flavor) {
+        this.flavor = flavor;
     }
 
     public String getSize() {
         return size;
     }
 
+    public void setSize(String size) {
+        this.size = size;
+    }
+
     @Override
     public double getTotalPrice() {
-        return 0;
+        if (this.size.equals("Small")) {
+            return this.price = 2.00;
+        }
+        else if (this.size.equals("Medium")) {
+            return this.price = 2.50;
+        }
+        else {
+            return this.price = 3.00;
+        }
     }
 }

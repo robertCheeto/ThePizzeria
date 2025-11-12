@@ -1,14 +1,12 @@
 in-class project that uses interfaces and multiple menu UIs to reference - https://github.com/topherbc/Java-Academy-Fall-25/tree/main/week-07/class/day-1
 
 TO-DO:
-* need to either add a InputUtility/ConsoleUtility class to handle user inputs
-or keep adding Scanner and int userInput to new menus when needed
-* WORKING HERE * clean up names for PizzaMenu methods /////////////
 * got the cart item to print to the receipt, need to work on an
 @Override toString() to format the receipt properly
-
-
 * WORKING HERE*  need to add option for the pizza to have stuffed crust
 * need to find a better way to have the addons added into the order
 * once when the above is finished, I am going to need to ask the user to return home and ask if they want to
 add a drink, breadsticks, checkout, or cancel the order
+* build out DrinkMenu and DrinkOrder
+* see if Breadsticks can just be added "as is" or take the time to do custom options for breadsticks (cheese-filled, etc)
+* update README file with latest information of the project

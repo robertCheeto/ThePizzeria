@@ -64,13 +64,11 @@ public class HomeScreen {
                     System.out.println("Adding Drink to cart...");
                     Utilities.clearScreen();
                     DrinkMenu.buildDrink();
-                    System.out.println("Need to start building the Drink Method");
                 }
                 case 3 -> {
                     System.out.println("Adding Breadsticks to cart...");
                     Utilities.clearScreen();
                     BreadsticksMenu.buildSticks();
-                    System.out.println("Need to start building the breadsticks method");
                 }
                 case 4 -> {
                     System.out.println("Loading checkout menu...");

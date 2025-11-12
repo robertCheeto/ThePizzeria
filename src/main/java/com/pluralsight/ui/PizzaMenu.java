@@ -195,22 +195,6 @@ public class PizzaMenu {
         }
     }
 
-//    public static void displayExtraMenu() {
-//        String userChoice = keyboard.nextLine().toLowerCase().trim();
-//
-//        switch (userChoice) {
-//            case "y" -> {
-//                System.out.println("continuing");
-//                displayExtraCheeseMenu();
-//            }
-//            case "n" -> {
-//                System.out.println("nah");
-//                displayExtraCheeseMenu();
-//            }
-//            default -> System.out.println("Enter a valid input");
-//        }
-//    }
-
     public static Toppings displayCheeseToppingsMenu() {
         cheeseToppingsMenu();
         Toppings cheese;
@@ -557,7 +541,6 @@ public class PizzaMenu {
         System.out.println("0) No extra toppings");
         System.out.print("Enter input here: ");
     }
-
 
     public static Toppings displayAddOnsMenu() {
         pizzaAddOnMenu();

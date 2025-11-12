@@ -82,7 +82,8 @@ public class HomeScreen {
                     case 1 -> {
                         System.out.println("Adding Pizza to cart...");
                         clearScreen();
-                        PizzaMenu.displayPizzaMenu();
+                        //PizzaMenu.displayPizzaMenu();
+                        PizzaMenu.buildPizza();
                     }
                     case 2 -> System.out.println("Adding Drink to cart...");
                     case 3 -> System.out.println("Adding Breadsticks to cart...");

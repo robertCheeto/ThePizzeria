@@ -20,12 +20,22 @@ public class PizzaMenu {
         calculateOrder = cart;
     }
 
-    public static void displayPizzaMenu() {
-        Pizza pizza = PizzaOrder.buildPizza("Pie 1", displayPizzaSizeMenu(), 0, displayPizzaCrustMenu(), displayAllToppings());
-        System.out.printf("Your Pizza: Size - %s ($%.2f) | Crust - %s\nToppings: %s ($%.2f)", pizza.getSize(), pizza.getPrice(), pizza.getCrustType(), pizza.getToppings(), pizza.getTotalPrice());
+    public static void buildPizza() {
+        System.out.print("Who is the pizza for(?): ");
+        String name = keyboard.nextLine();
+        System.out.println("What kind of pizza are you craving?");
+        Pizza pizza = new Pizza(name, 0);
+
+        pizza.setSize(displayPizzaSizeMenu());
+        pizza.setCrustType(displayPizzaCrustMenu());
+        pizza.setToppings(displayAllToppings());
+
+        pizza = new Pizza(name, pizza.getSize(), pizza.getPrice(), pizza.getCrustType(), pizza.getToppings());
+
         calculateOrder.addToCart(pizza);
         ui.displayHome();
     }
+
 
     public static String displayPizzaSizeMenu() {
         pizzaSizeMenu();
@@ -109,7 +119,6 @@ public class PizzaMenu {
         List<Toppings> toppingsList = new ArrayList<>();
 
         System.out.println("Time to select your toppings!");
-        System.out.println("You must select a Sauce before adding other toppings like Cheese, Meats, etc.");
         toppingsList.add(displaySaucesMenu());
         toppingsList.add(displayCheeseToppingsMenu());
         toppingsList.add(displayPizzaMeatToppingsMenu());

@@ -3,109 +3,88 @@ package com.pluralsight.ui;
 import com.pluralsight.ordering.CalculateOrder;
 import com.pluralsight.ordering.ReceiptGenerator;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 import static com.pluralsight.ordering.ReceiptGenerator.displayReceipt;
 
 public class HomeScreen {
     private static CalculateOrder cart = new CalculateOrder();
     private static final PizzaMenu pizza = new PizzaMenu(cart);
-    private static final Scanner keyboard = new Scanner(System.in);
-    private static int userInput;
     private static final boolean isRunning = true;
 
     public void displayHome() {
         homeScreenMenu();
 
         while (isRunning) {
-            // try-catch will end the loop if the user inputs a char/string
-            // need to find way to get the program to continue to run if this happens
-            try {
-                userInput = keyboard.nextInt();
-                keyboard.nextLine();
+            int userInput = Utilities.getUserIntInput("Input option here: ");
 
-                switch (userInput) {
-                    case 1 -> displayOrderMenu();
-                    case 2 -> displayCheckOutCart();
-                    case 3 -> {
-                        System.out.println("Thank you for ordering!\nHere is a copy of your receipt!");
-                        displayCheckOutReceipt();
-                        displayReceipt();
-                    }
-                    case 0 -> {
-                        System.out.println("Program shutting down...");
-                        keyboard.close();
-                        System.exit(0);
-                    }
-                    default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+            switch (userInput) {
+                case 1 -> displayOrderMenu();
+                case 2 -> displayCheckOutCart();
+                case 3 -> {
+                    System.out.println("Thank you for ordering!\nHere is a copy of your receipt!");
+                    displayCheckOutReceipt();
+                    displayReceipt();
                 }
-
-            } catch (InputMismatchException e) {
-                System.out.println("Please enter a number...");
-                break;
+                case 0 -> Utilities.exitProgram();
+                default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
             }
         }
-
-
     }
 
     public void homeScreenMenu() {
         System.out.println("*** Welcome to Spezialetti's Pizzeria ***");
         System.out.println("1) New Order\n2) Cart\n3) Checkout\n0) Exit");
-        System.out.print("Input option here: ");
-
     }
 
     public void orderScreenMenu() {
-        clearScreen();
+        Utilities.clearScreen();
         System.out.println("*** ORDER UP! ***");
         System.out.println("1) Add Pizza");
         System.out.println("2) Add Drink");
         System.out.println("3) Add Breadsticks");
         System.out.println("4) Checkout");
         System.out.println("0) Cancel Order");
-        System.out.print("Input option here: ");
     }
 
     public void displayOrderMenu() {
         orderScreenMenu();
 
         while (isRunning) {
-            // try-catch will end the loop if the user inputs a char/string
-            // need to find way to get the program to continue to run if this happens
-            try {
-                userInput = keyboard.nextInt();
-                keyboard.nextLine();
 
-                switch (userInput) {
-                    case 1 -> {
-                        System.out.println("Adding Pizza to cart...");
-                        clearScreen();
-                        //PizzaMenu.displayPizzaMenu();
-                        PizzaMenu.buildPizza();
-                    }
-                    case 2 -> System.out.println("Adding Drink to cart...");
-                    case 3 -> System.out.println("Adding Breadsticks to cart...");
-                    case 4 -> System.out.println("Loading checkout menu...");
-                    case 0 -> {
-                        System.out.println("\nReturning to Home Screen...");
-                        // maybe add logic to wait before clearing screen and showing the home menu
-                        displayHome();
-                    }
-                    default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+            int userInput = Utilities.getUserIntInput("Input option here: ");
+
+            switch (userInput) {
+                case 1 -> {
+                    System.out.println("Adding Pizza to cart...");
+                    Utilities.clearScreen();
+                    PizzaMenu.buildPizza();
                 }
-
-            } catch (InputMismatchException e) {
-                System.out.println("Please enter a number...");
-                break;
+                case 2 -> {
+                    System.out.println("Adding Drink to cart...");
+                    Utilities.clearScreen();
+                    System.out.println("Need to start building the Drink Method");
+                }
+                case 3 -> {
+                    System.out.println("Adding Breadsticks to cart...");
+                    Utilities.clearScreen();
+                    System.out.println("Need to start building the breadsticks method");
+                }
+                case 4 -> {
+                    System.out.println("Loading checkout menu...");
+                    Utilities.clearScreen();
+                    System.out.println("Need to build out this check out menu");
+                }
+                case 0 -> {
+                    System.out.println("\nReturning to Home Screen...");
+                    // maybe add logic to wait before clearing screen and showing the home menu
+                    displayHome();
+                }
+                default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
             }
         }
-
     }
 
     public void checkOutCart() {
-        clearScreen();
+        Utilities.clearScreen();
         CalculateOrder.displayCheckoutCart();
     }
 
@@ -115,12 +94,6 @@ public class HomeScreen {
 
     public void displayCheckOutReceipt() {
         ReceiptGenerator.printReceipt(cart);
-    }
-
-    public void clearScreen() {
-        for (int i = 0; i < 30; i++) {
-            System.out.println();
-        }
     }
 
 }

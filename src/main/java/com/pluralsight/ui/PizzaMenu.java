@@ -124,8 +124,14 @@ public class PizzaMenu {
             toppingsList.add(displayExtraCheeseMenu());
             toppingsList.add(displayExtraMeatMenu());
             toppingsList.add(displayRegularToppingsMenu());
-            toppingsList.add(displayAddOnsMenu());
         }
+        else {
+            Utilities.clearScreen();
+            System.out.println("Mama Mia!\n");
+        }
+
+        toppingsList.add(displayAddOnsMenu());
+
         return toppingsList;
     }
 
@@ -544,11 +550,11 @@ public class PizzaMenu {
                 case 1 -> {
                     addOns = new Toppings("Red Pepper Flakes", 0);
                     Utilities.clearScreen();
-                    System.out.println("A Packet of Red Pepper Flakes has been added");
+                    System.out.println("A Packet of Red Pepper Flakes has been added!");
                     return addOns;
                 }
                 case 2 -> {
-                    addOns = new Toppings("Packet of Parmesan Cheese", 0);
+                    addOns = new Toppings("Packet of Parmesan Cheese!", 0);
                     Utilities.clearScreen();
                     System.out.println("A Packet of Parmesan Cheese has been added");
                     return addOns;

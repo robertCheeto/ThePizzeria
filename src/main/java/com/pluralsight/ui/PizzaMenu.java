@@ -559,6 +559,12 @@ public class PizzaMenu {
                     System.out.println("A Packet of Parmesan Cheese has been added");
                     return addOns;
                 }
+                case 0 -> {
+                    addOns = new Toppings("No Packets", 0);
+                    Utilities.clearScreen();
+                    System.out.println("No packets were added");
+                    return addOns;
+                }
                 default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
             }
         }
@@ -568,5 +574,6 @@ public class PizzaMenu {
         System.out.println("Any side addons?");
         System.out.println("1) Red Pepper Flake Packet");
         System.out.println("2) Parmesan Cheese Packet");
+        System.out.println("0) No Packets");
     }
 }

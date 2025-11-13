@@ -57,43 +57,55 @@ public class Pizza extends MenuItem {
 
     @Override
     public String toString() {
-        for (Toppings topping : toppings) {
-            if (toppings.contains(null)) {
-                topping.toString()
-                        // working on removing null from the toppings list before doing the toString
-            }
-            else {
-                return name + "'s Pizza:\n" + size + " | " + crustType + "\nToppings: " + toppings;
-            }
+        if (this.toppings.contains(null)) {
+            return name + "'s Pizza:\n" + size + " | " + crustType;
+        }
+        else {
+            return name + "'s Pizza:\n" + size + " | " + crustType + "\nToppings: " + toppings;
         }
     }
 
     @Override
     public double getTotalPrice() {
-        double price = 0;
+        double price;
         double regularMultiplier = 2;
         double largeMultiplier = 3;
 
         if (this.size.equals("Personal Sized")) {
             price = 8.50;
-            double toppingsPrice = this.toppings.stream()
-                    .mapToDouble(Toppings::getPrice)
-                    .reduce(0, (total, num) -> total += num);
-            return price + toppingsPrice;
+            if (this.toppings.contains(null)) {
+                return price;
+            }
+            else{
+                double toppingsPrice = this.toppings.stream()
+                        .mapToDouble(Toppings::getPrice)
+                        .reduce(0, (total, num) -> total += num);
+                return price + toppingsPrice;
+            }
         }
         else if (this.size.equals("Regular Sized")) {
             price = 12;
-            double toppingsPrice = this.toppings.stream()
-                    .mapToDouble(toppings -> toppings.getPrice() * regularMultiplier)
-                    .reduce(0, (total, num) -> total += num);
-            return price +toppingsPrice;
+            if (this.toppings.contains(null)) {
+                return price;
+            }
+            else {
+                double toppingsPrice = this.toppings.stream()
+                        .mapToDouble(toppings -> toppings.getPrice() * regularMultiplier)
+                        .reduce(0, (total, num) -> total += num);
+                return price + toppingsPrice;
+            }
         }
         else {
             price = 16.50;
-            double toppingsPrice = this.toppings.stream()
-                    .mapToDouble(toppings -> toppings.getPrice() * largeMultiplier)
-                    .reduce(0, (total, num) -> total += num);
-            return price + toppingsPrice;
+            if (this.toppings.contains(null)) {
+                return price;
+            }
+            else {
+                double toppingsPrice = this.toppings.stream()
+                        .mapToDouble(toppings -> toppings.getPrice() * largeMultiplier)
+                        .reduce(0, (total, num) -> total += num);
+                return price + toppingsPrice;
+            }
         }
     }
 }

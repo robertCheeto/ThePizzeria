@@ -18,7 +18,7 @@ public class BreadsticksMenu {
 
         breadsticks.setType(displayBreadstickMenu());
 
-        breadsticks = new Breadsticks(name, breadsticks.getTotalPrice(), breadsticks.getType());
+        breadsticks = new Breadsticks(breadsticks.getType(), breadsticks.getTotalPrice(), breadsticks.getType());
 
         Utilities.waitForEnter();
         calculateOrder.addToCart(breadsticks);

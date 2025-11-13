@@ -13,13 +13,14 @@ public class CalculateOrder {
     }
 
     public static void displayCheckoutCart() {
+        System.out.println("*** Your Cart ***");
         for (MenuItem item : checkoutCart) {
-            System.out.printf(String.valueOf(item));
-            System.out.println();
-            System.out.printf("$%.2f",item.getTotalPrice());
+            System.out.printf("%s | $%.2f\n",item.getName(), item.getTotalPrice());
+            //System.out.printf("$%.2f",item.getTotalPrice());
         }
-        System.out.print("\n\nTotal: $");
+        System.out.print("\nTotal: $");
         getFinalPrice();
+        System.out.println("**********");
     }
 
     public static void getFinalPrice() {
@@ -28,11 +29,19 @@ public class CalculateOrder {
         for (MenuItem price : checkoutCart) {
             finalPrice += price.getTotalPrice();
         }
-        System.out.println(finalPrice);
+        System.out.printf("%.2f\n", finalPrice);
     }
 
     public List<MenuItem> getCheckOutCart() {
          return checkoutCart;
     }
+
+//    public static List<MenuItem> emptyCart() {
+//        for (MenuItem item : checkoutCart) {
+//            checkoutCart.remove(item);
+//        }
+//        System.out.println(checkoutCart);
+//        return checkoutCart;
+//    }
 
 }

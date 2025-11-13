@@ -37,12 +37,9 @@ public class CalculateOrder {
          return checkoutCart;
     }
 
-//    public static List<MenuItem> emptyCart() {
-//        for (MenuItem item : checkoutCart) {
-//            checkoutCart.remove(item);
-//        }
-//        System.out.println(checkoutCart);
-//        return checkoutCart;
-//    }
-
+    public static void emptyCart() {
+        for (int i = 0; i < checkoutCart.size(); i++) {
+            checkoutCart.clear();
+        }
+    }
 }

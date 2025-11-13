@@ -39,7 +39,7 @@ public class HomeScreen {
         System.out.println("3) Add Breadsticks");
         System.out.println("4) View Cart");
         System.out.println("5) Checkout");
-        System.out.println("0) Cancel Order\n**NEED TO ADD LOGIC THAT EMPTIES THE CART**");
+        System.out.println("0) Cancel Order");
     }
 
     public void displayOrderMenu() {
@@ -90,7 +90,7 @@ public class HomeScreen {
                     }
                 }
                 case 0 -> {
-                    //CalculateOrder.emptyCart();
+                    CalculateOrder.emptyCart();
                     Utilities.clearScreen();
                     System.out.println("Returning to Home Screen...\n");
                     displayHome();

@@ -20,7 +20,7 @@ public class DrinkMenu {
         drink.setSize(displaySizeMenu());
         drink.setFlavor(displayFlavorMenu());
 
-        drink = new Drink(name, drink.getPrice(), drink.getFlavor(), drink.getSize());
+        drink = new Drink(drink.getSize() + " " +drink.getFlavor(), drink.getPrice(), drink.getFlavor(), drink.getSize());
 
         Utilities.waitForEnter();
         calculateOrder.addToCart(drink);

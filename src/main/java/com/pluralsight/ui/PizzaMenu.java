@@ -431,7 +431,7 @@ public class PizzaMenu {
                     return meat;
                 }
                 case 0 -> {
-                    meat = new Toppings("No Extra Meats", 0);
+                    meat = new Toppings("No Meat", 0);
                     Utilities.clearScreen();
                     System.out.println("No extra meats were added.");
                     return meat;

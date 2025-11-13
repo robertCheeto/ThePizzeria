@@ -5,18 +5,20 @@ import com.pluralsight.ordering.ReceiptGenerator;
 
 import static com.pluralsight.ordering.ReceiptGenerator.displayReceipt;
 
-public class HomeScreen {
+public class HomeScreen implements HomeDisplay {
     private static CalculateOrder cart = new CalculateOrder();
     private static final PizzaMenu pizza = new PizzaMenu(cart);
     private static final DrinkMenu drink = new DrinkMenu(cart);
     private static final BreadsticksMenu breadsticks = new BreadsticksMenu(cart);
     private static final boolean isRunning = true;
 
+    @Override
     public void homeScreen() {
         System.out.println("*** Welcome to Spezialetti's Pizzeria ***");
         System.out.println("1) New Order\n0) Exit");
     }
 
+    @Override
     public void displayHome() {
         homeScreen();
 
@@ -26,7 +28,7 @@ public class HomeScreen {
             switch (userInput) {
                 case 1 -> displayOrderMenu();
                 case 0 -> Utilities.exitProgram();
-                default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+                default -> System.out.print("\nPlease enter a valid input...\n");
             }
         }
     }
@@ -70,7 +72,7 @@ public class HomeScreen {
                         Utilities.pressEnterToContinue();
                     }
                     else {
-                        System.out.println("Loading cart...\n");
+                        System.out.println("Loading cart...");
                         displayCart();
                         Utilities.pressEnterToContinue();
                     }
@@ -95,13 +97,13 @@ public class HomeScreen {
                     System.out.println("Returning to Home Screen...\n");
                     displayHome();
                 }
-                default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+                default -> System.out.print("\nPlease enter a valid input...\n");
             }
         }
     }
 
     public void displayCart() {
-        CalculateOrder.displayCheckoutCart();
+        CalculateOrder.printCart();
     }
 
     public void printCheckOutReceipt() {

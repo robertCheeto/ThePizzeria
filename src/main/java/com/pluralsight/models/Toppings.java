@@ -19,11 +19,6 @@ public class Toppings {
 
     @Override
     public String toString() {
-        if (name.contains("No")) {
-            return null;
-        }
-        else {
-            return String.format("%s | $%.2f", name, price);
-        }
+        return String.format("%s | $%.2f", name, price);
     }
 }

@@ -5,6 +5,27 @@ TO-DO:
 @Override toString() to format the receipt properly
 * need to add option for the pizza to have stuffed crust
 * need to find a better way to have the addons added into the order (formatting Toppings toString most likely)
+* need to add logic that empties cart when user decides to Cancel Order
+* WORKING* work on displayCheckOutCart() in HomeScreen to have information displayed in a "better" way
+
+Current Cart Display: (working on updating the Pizza option)
+
+Loading cart...
+
+*** Your Cart ***
+Tony | $15.50
+
+Total: $15.50
+**********
+
+
+display of Checkout and Receipt:
+
+Thank you for ordering! Here is a copy of your receipt!
+
+	*** SPEZIALETTI'S PIZZERIA ***
+20251113-103611
+
+Pizza Contains: Crust = Regular Crust | Size 'Regular Sized | Toppings = [Topping: Marinara | Price $0.0, Topping: Mozzarella | Price $0.75, Topping: Pepperoni | Price $1.0, Topping: No Extra Toppings | Price $0.0, Topping: Red Pepper Flakes | Price $0.0] | Name = Tony
+
 * update README file with latest information of the project
-* work on displayCheckOutCart() in HomeScreen to have information displayed in a "better" way
-* add logic to "Check out" where if the cart is empty, the user will not be allowed to check out and generate a receipt

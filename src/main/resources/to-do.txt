@@ -4,19 +4,24 @@ TO-DO:
 * got the cart item to print to the receipt, need to work on an
 @Override toString() to format the receipt properly
 * need to add option for the pizza to have stuffed crust
-* need to find a better way to have the addons added into the order (formatting Toppings toString most likely)
 * need to add logic that empties cart when user decides to Cancel Order
-* WORKING* work on displayCheckOutCart() in HomeScreen to have information displayed in a "better" way
-
-Current Cart Display: (working on updating the Pizza option)
+* WORKING* work on the receipt print out and the Toppings toString()
 
 Loading cart...
 
 *** Your Cart ***
-Tony | $15.50
+
+- Tom's Pizza:
+Regular Sized | Regular Crust
+Toppings: [Marinara | $0.00
+, Mozzarella | $0.75
+, Pepperoni | $1.00
+, , ] | $15.50
+
 
 Total: $15.50
 **********
+
 
 
 display of Checkout and Receipt:
@@ -24,8 +29,13 @@ display of Checkout and Receipt:
 Thank you for ordering! Here is a copy of your receipt!
 
 	*** SPEZIALETTI'S PIZZERIA ***
-20251113-103611
+20251113-112010
 
-Pizza Contains: Crust = Regular Crust | Size 'Regular Sized | Toppings = [Topping: Marinara | Price $0.0, Topping: Mozzarella | Price $0.75, Topping: Pepperoni | Price $1.0, Topping: No Extra Toppings | Price $0.0, Topping: Red Pepper Flakes | Price $0.0] | Name = Tony
+Tom's Pizza:
+Regular Sized | Regular Crust
+Toppings: [Marinara | $0.00
+, Mozzarella | $0.75
+, Pepperoni | $1.00
+, , ]
 
 * update README file with latest information of the project

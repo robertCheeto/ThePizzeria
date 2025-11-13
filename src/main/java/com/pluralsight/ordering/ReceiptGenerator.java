@@ -20,7 +20,6 @@ public class ReceiptGenerator {
     private static final File FOLDER_PATH = new File(FILE_LOCATION);
 
 
-
     public static void printReceipt(CalculateOrder order) {
         if (FOLDER_PATH.exists()) {
             try {
@@ -30,7 +29,6 @@ public class ReceiptGenerator {
                 for (MenuItem orders : order.getCheckOutCart()) {
                     bufWriter.write(String.format(orders.toString()));
                 }
-
                 bufWriter.close();
 
             } catch (IOException e) {
@@ -48,7 +46,6 @@ public class ReceiptGenerator {
                 for (MenuItem orders : order.getCheckOutCart()) {
                     bufWriter.write(String.format(orders.toString()));
                 }
-
                 bufWriter.close();
 
             } catch (IOException e) {

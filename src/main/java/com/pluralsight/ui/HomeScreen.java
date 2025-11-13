@@ -12,29 +12,23 @@ public class HomeScreen {
     private static final BreadsticksMenu breadsticks = new BreadsticksMenu(cart);
     private static final boolean isRunning = true;
 
+    public void homeScreen() {
+        System.out.println("*** Welcome to Spezialetti's Pizzeria ***");
+        System.out.println("1) New Order\n0) Exit");
+    }
+
     public void displayHome() {
-        homeScreenMenu();
+        homeScreen();
 
         while (isRunning) {
             int userInput = Utilities.getUserIntInput("Input option here: ");
 
             switch (userInput) {
                 case 1 -> displayOrderMenu();
-                case 2 -> displayCheckOutCart();
-                case 3 -> {
-                    System.out.println("Thank you for ordering!\nHere is a copy of your receipt!");
-                    displayCheckOutReceipt();
-                    displayReceipt();
-                }
                 case 0 -> Utilities.exitProgram();
                 default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
             }
         }
-    }
-
-    public void homeScreenMenu() {
-        System.out.println("*** Welcome to Spezialetti's Pizzeria ***");
-        System.out.println("1) New Order\n2) Cart\n3) Checkout\n0) Exit");
     }
 
     public void orderScreenMenu() {
@@ -71,9 +65,10 @@ public class HomeScreen {
                     BreadsticksMenu.buildSticks();
                 }
                 case 4 -> {
-                    System.out.println("Loading checkout menu...");
                     Utilities.clearScreen();
-                    System.out.println("Need to build out this check out menu");
+                    System.out.println("Thank you for ordering! Here is a copy of your receipt!\n");
+                    displayCheckOutReceipt();
+                    displayReceipt();
                 }
                 case 0 -> {
                     System.out.println("\nReturning to Home Screen...");
@@ -85,14 +80,14 @@ public class HomeScreen {
         }
     }
 
-    public void checkOutCart() {
-        Utilities.clearScreen();
-        CalculateOrder.displayCheckoutCart();
-    }
-
-    public void displayCheckOutCart() {
-        checkOutCart();
-    }
+//    public void checkOutCart() {
+//        Utilities.clearScreen();
+//        CalculateOrder.displayCheckoutCart();
+//    }
+//
+//    public void displayCheckOutCart() {
+//        checkOutCart();
+//    }
 
     public void displayCheckOutReceipt() {
         ReceiptGenerator.printReceipt(cart);

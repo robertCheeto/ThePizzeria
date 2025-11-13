@@ -71,7 +71,7 @@ public class HomeScreen {
                     }
                     else {
                         System.out.println("Loading cart...\n");
-                        checkOutCart();
+                        displayCart();
                         Utilities.pressEnterToContinue();
                     }
                 }
@@ -99,7 +99,7 @@ public class HomeScreen {
         }
     }
 
-    public void checkOutCart() {
+    public void displayCart() {
         CalculateOrder.displayCheckoutCart();
     }
 

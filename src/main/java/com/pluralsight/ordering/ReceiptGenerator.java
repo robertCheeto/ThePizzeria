@@ -9,13 +9,15 @@ import java.time.format.DateTimeFormatter;
 
 public class ReceiptGenerator {
     private static final LocalDateTime localDateTime = LocalDateTime.now();
-    private static final DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss");
-    private static final String formatDateTime = localDateTime.format(format);
+    private static final DateTimeFormatter formatReceipt = DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss");
+    private static final DateTimeFormatter formatText = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
+    private static final String formatReceiptTXT = localDateTime.format(formatReceipt);
+    private static final String formatTextPrint = localDateTime.format(formatText);
     private static final String RECEIPT_HEADER = "\t*** SPEZIALETTI'S PIZZERIA ***" +
-            "\n" + formatDateTime + "\n\n";
+            "\n\t\t" + formatTextPrint + "\n\t\t**********" + "\n\n";
 
     private static final String FILE_LOCATION = "src/main/receipts/";
-    private static final String FILE_NAME = formatDateTime + ".txt";
+    private static final String FILE_NAME = formatReceiptTXT + ".txt";
     private static final File FILE_PATH = new File(FILE_LOCATION + FILE_NAME);
     private static final File FOLDER_PATH = new File(FILE_LOCATION);
 
@@ -27,8 +29,10 @@ public class ReceiptGenerator {
                 bufWriter.write(RECEIPT_HEADER);
 
                 for (MenuItem orders : order.getCheckOutCart()) {
-                    bufWriter.write(String.format(orders.toString()));
+                    bufWriter.write(String.format("\t\t- %s | $%.2f\n\n",orders.toString(), orders.getTotalPrice()));
                 }
+                bufWriter.write(String.format("\t\tTotal: $%.2f", CalculateOrder.getFinalReceiptPrice()));
+                bufWriter.write("\n\t\t**********");
                 bufWriter.close();
 
             } catch (IOException e) {
@@ -44,8 +48,10 @@ public class ReceiptGenerator {
                 bufWriter.write(RECEIPT_HEADER);
 
                 for (MenuItem orders : order.getCheckOutCart()) {
-                    bufWriter.write(String.format(orders.toString()));
+                    bufWriter.write(String.format("- %s | $%.2f\n\n",orders.toString(), orders.getTotalPrice()));
                 }
+
+                bufWriter.write("\n**********");
                 bufWriter.close();
 
             } catch (IOException e) {

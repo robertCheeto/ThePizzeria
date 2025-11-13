@@ -1,7 +1,6 @@
 package com.pluralsight.ordering;
 
 import com.pluralsight.models.MenuItem;
-import com.pluralsight.ui.HomeDisplay;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +31,15 @@ public class CalculateOrder {
             finalPrice += price.getTotalPrice();
         }
         System.out.printf("%.2f\n", finalPrice);
+    }
+
+    public static double getFinalReceiptPrice() {
+        double finalPrice = 0;
+
+        for (MenuItem price : checkoutCart) {
+            finalPrice += price.getTotalPrice();
+        }
+        return finalPrice;
     }
 
     public List<MenuItem> getCheckOutCart() {

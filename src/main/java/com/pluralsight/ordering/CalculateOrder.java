@@ -1,6 +1,7 @@
 package com.pluralsight.ordering;
 
 import com.pluralsight.models.MenuItem;
+import com.pluralsight.ui.HomeDisplay;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ public class CalculateOrder {
         checkoutCart.add(item);
     }
 
-    public static void displayCheckoutCart() {
+    public static void printCart() {
         System.out.println("*** Your Cart ***\n");
 
         for (MenuItem item : checkoutCart) {

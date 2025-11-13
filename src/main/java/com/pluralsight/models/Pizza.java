@@ -57,8 +57,15 @@ public class Pizza extends MenuItem {
 
     @Override
     public String toString() {
-        return name + "'s Pizza:\n" + size + " | " + crustType + "\n" +
-                "Toppings: " + toppings;
+        for (Toppings topping : toppings) {
+            if (toppings.contains(null)) {
+                topping.toString()
+                        // working on removing null from the toppings list before doing the toString
+            }
+            else {
+                return name + "'s Pizza:\n" + size + " | " + crustType + "\nToppings: " + toppings;
+            }
+        }
     }
 
     @Override

@@ -19,6 +19,11 @@ public class Toppings {
 
     @Override
     public String toString() {
-        return "Topping: " + name + " | " + "Price $" + price;
+        if (name.contains("No")) {
+            return null;
+        }
+        else {
+            return String.format("%s | $%.2f", name, price);
+        }
     }
 }

@@ -501,7 +501,7 @@ public class PizzaMenu {
                     return extras;
                 }
                 case 8 -> {
-                    extras = new Toppings("Pineapples!\n", 0);
+                    extras = new Toppings("Pineapples\n", 0);
                     Utilities.clearScreen();
                     System.out.println("Pineapples have been added (even though they don't belong!)");
                     return extras;

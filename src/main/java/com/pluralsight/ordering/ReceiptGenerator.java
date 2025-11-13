@@ -13,8 +13,8 @@ public class ReceiptGenerator {
     private static final DateTimeFormatter formatText = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
     private static final String formatReceiptTXT = localDateTime.format(formatReceipt);
     private static final String formatTextPrint = localDateTime.format(formatText);
-    private static final String RECEIPT_HEADER = "\t*** SPEZIALETTI'S PIZZERIA ***" +
-            "\n\t\t" + formatTextPrint + "\n\t\t**********" + "\n\n";
+    private static final String RECEIPT_HEADER = "*** SPEZIALETTI'S PIZZERIA ***" +
+            "\n" + formatTextPrint + "\n**********" + "\n\n";
 
     private static final String FILE_LOCATION = "src/main/receipts/";
     private static final String FILE_NAME = formatReceiptTXT + ".txt";
@@ -29,10 +29,10 @@ public class ReceiptGenerator {
                 bufWriter.write(RECEIPT_HEADER);
 
                 for (MenuItem orders : order.getCheckOutCart()) {
-                    bufWriter.write(String.format("\t\t- %s | $%.2f\n\n",orders.toString(), orders.getTotalPrice()));
+                    bufWriter.write(String.format("- %s | $%.2f\n\n",orders.toString(), orders.getTotalPrice()));
                 }
-                bufWriter.write(String.format("\t\tTotal: $%.2f", CalculateOrder.getFinalReceiptPrice()));
-                bufWriter.write("\n\t\t**********");
+                bufWriter.write(String.format("Total: $%.2f", CalculateOrder.getFinalReceiptPrice()));
+                bufWriter.write("\n**********");
                 bufWriter.close();
 
             } catch (IOException e) {

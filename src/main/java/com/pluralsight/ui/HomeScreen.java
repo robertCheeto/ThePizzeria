@@ -37,42 +37,49 @@ public class HomeScreen {
         System.out.println("1) Add Pizza");
         System.out.println("2) Add Drink");
         System.out.println("3) Add Breadsticks");
-        System.out.println("4) Checkout");
+        System.out.println("4) View Cart");
+        System.out.println("5) Checkout");
         System.out.println("0) Cancel Order");
     }
 
     public void displayOrderMenu() {
-        orderScreenMenu();
-
         while (isRunning) {
-
+            orderScreenMenu();
             int userInput = Utilities.getUserIntInput("Input option here: ");
 
             switch (userInput) {
                 case 1 -> {
-                    System.out.println("Adding Pizza to cart...");
                     Utilities.clearScreen();
+                    System.out.println("Adding Pizza to cart...\n");
                     PizzaMenu.buildPizza();
                 }
                 case 2 -> {
-                    System.out.println("Adding Drink to cart...");
                     Utilities.clearScreen();
+                    System.out.println("Adding Drink to cart...\n");
                     DrinkMenu.buildDrink();
                 }
                 case 3 -> {
-                    System.out.println("Adding Breadsticks to cart...");
                     Utilities.clearScreen();
+                    System.out.println("Adding Breadsticks to cart...\n");
                     BreadsticksMenu.buildSticks();
                 }
                 case 4 -> {
                     Utilities.clearScreen();
+                    System.out.println("Loading cart...\n");
+                    checkOutCart();
+                    Utilities.pressEnterToContinue();
+                }
+                case 5 -> {
+                    Utilities.clearScreen();
                     System.out.println("Thank you for ordering! Here is a copy of your receipt!\n");
                     displayCheckOutReceipt();
                     displayReceipt();
+                    Utilities.pressEnterToContinue();
+                    Utilities.exitProgram();
                 }
                 case 0 -> {
-                    System.out.println("\nReturning to Home Screen...");
-                    // maybe add logic to wait before clearing screen and showing the home menu
+                    Utilities.clearScreen();
+                    System.out.println("Returning to Home Screen...\n");
                     displayHome();
                 }
                 default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
@@ -80,14 +87,9 @@ public class HomeScreen {
         }
     }
 
-//    public void checkOutCart() {
-//        Utilities.clearScreen();
-//        CalculateOrder.displayCheckoutCart();
-//    }
-//
-//    public void displayCheckOutCart() {
-//        checkOutCart();
-//    }
+    public void checkOutCart() {
+        CalculateOrder.displayCheckoutCart();
+    }
 
     public void displayCheckOutReceipt() {
         ReceiptGenerator.printReceipt(cart);

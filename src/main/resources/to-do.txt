@@ -8,4 +8,3 @@ TO-DO:
 * update README file with latest information of the project
 * work on displayCheckOutCart() in HomeScreen to have information displayed in a "better" way
 * add logic to "Check out" where if the cart is empty, the user will not be allowed to check out and generate a receipt
-y457wersdyghrtyf7ydu56rt7uyuktfjmi ouiogjkhygkcuyghvdcyhewsrzfg htfgchjntdfg==]

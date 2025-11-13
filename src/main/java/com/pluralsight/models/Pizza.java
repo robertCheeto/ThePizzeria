@@ -57,9 +57,8 @@ public class Pizza extends MenuItem {
 
     @Override
     public String toString() {
-        return "Pizza Contains: " + "Crust = " + crustType + " | " +
-                "Size '" + size + " | " + "Toppings = " + toppings +
-                " | " + "Name = " + name;
+        return name + "'s Pizza:\n" + size + " | " + crustType + "\n" +
+                "Toppings: " + toppings;
     }
 
     @Override

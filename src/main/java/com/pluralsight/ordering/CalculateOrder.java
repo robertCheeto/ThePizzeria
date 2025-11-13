@@ -13,9 +13,9 @@ public class CalculateOrder {
     }
 
     public static void displayCheckoutCart() {
-        System.out.println("*** Your Cart ***");
+        System.out.println("*** Your Cart ***\n");
         for (MenuItem item : checkoutCart) {
-            System.out.printf("%s | $%.2f\n",item.getName(), item.getTotalPrice());
+            System.out.printf("- %s | $%.2f\n\n",item.toString(), item.getTotalPrice());
             //System.out.printf("$%.2f",item.getTotalPrice());
         }
         System.out.print("\nTotal: $");

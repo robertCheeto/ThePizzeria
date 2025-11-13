@@ -83,7 +83,7 @@ public class HomeScreen {
                     }
                     else {
                         System.out.println("Thank you for ordering! Here is a copy of your receipt!\n");
-                        displayCheckOutReceipt();
+                        printCheckOutReceipt();
                         displayReceipt();
                         Utilities.pressEnterToContinue();
                         Utilities.exitProgram();
@@ -104,7 +104,7 @@ public class HomeScreen {
         CalculateOrder.displayCheckoutCart();
     }
 
-    public void displayCheckOutReceipt() {
+    public void printCheckOutReceipt() {
         ReceiptGenerator.printReceipt(cart);
     }
 

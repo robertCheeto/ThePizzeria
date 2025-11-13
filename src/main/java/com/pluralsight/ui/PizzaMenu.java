@@ -26,7 +26,7 @@ public class PizzaMenu {
         pizza.setCrustType(displayPizzaCrustMenu());
         pizza.setToppings(displayAllToppings());
 
-        pizza = new Pizza(pizza.getSize() + " " + pizza.getToppings(), pizza.getSize(), pizza.getPrice(), pizza.getCrustType(), pizza.getToppings());
+        pizza = new Pizza(name, pizza.getSize(), pizza.getPrice(), pizza.getCrustType(), pizza.getToppings());
 
         Utilities.waitForEnter();
         calculateOrder.addToCart(pizza);

@@ -132,6 +132,10 @@ public class PizzaMenu {
 
         toppingsList.add(displayAddOnsMenu());
 
+        for (int i = 0; i < toppingsList.size(); i++) {
+            toppingsList.remove(null);
+        }
+
         return toppingsList;
     }
 
@@ -161,7 +165,7 @@ public class PizzaMenu {
                     return sauce;
                 }
                 case 2 -> {
-                    sauce = (new Toppings("Alferdo", 0));
+                    sauce = (new Toppings("Alfredo", 0));
                     Utilities.clearScreen();
                     System.out.println("Alfredo has been added!\n");
                     return sauce;
@@ -187,16 +191,14 @@ public class PizzaMenu {
                 case 6 -> {
                     sauce = new Toppings("Olive Oil", 0);
                     Utilities.clearScreen();
-                    System.out.println("Olive Oil has been adde!\nd");
+                    System.out.println("Olive Oil has been added!\n");
                     return sauce;
                 }
-                case 0 -> {
-                    sauce = new Toppings("No Sauce", 0);
+                case 0 ->  {
                     Utilities.clearScreen();
                     System.out.println("No Sauce was added.\n");
-                    return sauce;
+                    return null;
                 }
-
                 default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
             }
         }
@@ -240,11 +242,10 @@ public class PizzaMenu {
                     System.out.println("Buffalo Cheese has been added!\n");
                     return cheese;
                 }
-                case 0 -> {
-                    cheese = new Toppings("No Cheese", 0);
+                case 0 ->  {
                     Utilities.clearScreen();
                     System.out.println("No cheese for you!\n");
-                    return cheese;
+                    return null;
                 }
                 default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
             }
@@ -300,10 +301,9 @@ public class PizzaMenu {
                     return cheese;
                 }
                 case 0 -> {
-                    cheese = new Toppings("No Cheese", 0);
                     Utilities.clearScreen();
                     System.out.println("No extra cheese for you!");
-                    return cheese;
+                    return null;
                 }
                 default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
             }
@@ -365,10 +365,9 @@ public class PizzaMenu {
                     return meat;
                 }
                 case 0 -> {
-                    meat = new Toppings("No Meats", 0);
                     Utilities.clearScreen();
                     System.out.println("No meats were added.\n");
-                    return meat;
+                    return null;
                 }
                 default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
             }
@@ -431,10 +430,9 @@ public class PizzaMenu {
                     return meat;
                 }
                 case 0 -> {
-                    meat = new Toppings("No Meat", 0);
                     Utilities.clearScreen();
                     System.out.println("No extra meats were added.");
-                    return meat;
+                    return null;
                 }
                 default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
             }
@@ -515,10 +513,9 @@ public class PizzaMenu {
                     return extras;
                 }
                 case 0 -> {
-                    extras = new Toppings("No Extra Toppings", 0);
                     Utilities.clearScreen();
                     System.out.println("No extra toppings were added.\n");
-                    return extras;
+                    return null;
                 }
                 default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
             }
@@ -560,10 +557,9 @@ public class PizzaMenu {
                     return addOns;
                 }
                 case 0 -> {
-                    addOns = new Toppings("No Packets", 0);
                     Utilities.clearScreen();
                     System.out.println("No packets were added");
-                    return addOns;
+                    return null;
                 }
                 default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
             }

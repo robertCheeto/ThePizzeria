@@ -31,7 +31,7 @@ public class PizzaMenu {
         Utilities.waitForEnter();
         calculateOrder.addToCart(pizza);
         Utilities.clearScreen();
-        ui.displayHome();
+        ui.displayOrderMenu();
     }
 
     public static void pizzaSizeMenu() {

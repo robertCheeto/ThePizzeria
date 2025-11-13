@@ -25,7 +25,7 @@ public class DrinkMenu {
         Utilities.waitForEnter();
         calculateOrder.addToCart(drink);
         Utilities.clearScreen();
-        ui.displayHome();
+        ui.displayOrderMenu();
     }
 
     public static void drinkSizes() {

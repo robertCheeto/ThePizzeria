@@ -6,7 +6,6 @@ import com.pluralsight.ordering.CalculateOrder;
 public class BreadsticksMenu {
     private static final HomeScreen ui = new HomeScreen();
     private static CalculateOrder calculateOrder;
-    private static int userInput;
     private static final boolean isRunning = true;
 
     public BreadsticksMenu(CalculateOrder cart) {
@@ -24,7 +23,7 @@ public class BreadsticksMenu {
         Utilities.waitForEnter();
         calculateOrder.addToCart(breadsticks);
         Utilities.clearScreen();
-        ui.displayHome();
+        ui.displayOrderMenu();
     }
 
     public static void breadstickOptions() {
@@ -38,7 +37,7 @@ public class BreadsticksMenu {
         breadstickOptions();
 
         while (isRunning) {
-            userInput = Utilities.getUserIntInput("Input option here: ");
+            int userInput = Utilities.getUserIntInput("Input option here: ");
 
             switch (userInput) {
                 case 1 -> {

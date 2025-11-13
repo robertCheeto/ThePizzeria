@@ -6,7 +6,6 @@ import java.awt.*;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 public class ReceiptGenerator {
     private static final LocalDateTime localDateTime = LocalDateTime.now();
@@ -62,7 +61,7 @@ public class ReceiptGenerator {
         try {
             BufferedReader bufReader = new BufferedReader(new FileReader(FILE_PATH));
 
-            String input = "";
+            String input;
 
             while ((input = bufReader.readLine()) != null) {
                 System.out.println(input);

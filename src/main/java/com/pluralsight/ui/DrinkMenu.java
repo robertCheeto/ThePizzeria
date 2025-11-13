@@ -93,7 +93,7 @@ public class DrinkMenu {
                 case 3 -> {
                     Utilities.clearScreen();
                     System.out.println("You select Mountain Dew!\n");
-                    return "Mountain Dew!";
+                    return "Mountain Dew";
                 }
                 case 4 -> {
                     Utilities.clearScreen();

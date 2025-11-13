@@ -37,4 +37,4 @@ Additionally, there is a rough sketch of a program diagram for the visual learne
 ![Example Receipt](src/main/resources/receipt-example-screenshot.png "Example Receipt")
 
 #### Program Diagram
-![Project Diagram v1](src/main/resources/capstone-2-project-diagram.png "Project Diagram v1 from Paint")
+![Project Diagram](src/main/resources/pizzeria-diagram.png "Project Diagram")

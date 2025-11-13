@@ -65,17 +65,29 @@ public class HomeScreen {
                 }
                 case 4 -> {
                     Utilities.clearScreen();
-                    System.out.println("Loading cart...\n");
-                    checkOutCart();
-                    Utilities.pressEnterToContinue();
+                    if (cart.getCheckOutCart().isEmpty()) {
+                        System.out.println("Your cart is currently empty!");
+                        Utilities.pressEnterToContinue();
+                    }
+                    else {
+                        System.out.println("Loading cart...\n");
+                        checkOutCart();
+                        Utilities.pressEnterToContinue();
+                    }
                 }
                 case 5 -> {
                     Utilities.clearScreen();
-                    System.out.println("Thank you for ordering! Here is a copy of your receipt!\n");
-                    displayCheckOutReceipt();
-                    displayReceipt();
-                    Utilities.pressEnterToContinue();
-                    Utilities.exitProgram();
+                    if (cart.getCheckOutCart().isEmpty()) {
+                        System.out.println("You cannot check out because you do not have anything in your cart!");
+                        Utilities.pressEnterToContinue();
+                    }
+                    else {
+                        System.out.println("Thank you for ordering! Here is a copy of your receipt!\n");
+                        displayCheckOutReceipt();
+                        displayReceipt();
+                        Utilities.pressEnterToContinue();
+                        Utilities.exitProgram();
+                    }
                 }
                 case 0 -> {
                     Utilities.clearScreen();

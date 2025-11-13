@@ -8,9 +8,8 @@ import java.util.List;
 public class CalculateOrder {
     static List<MenuItem> checkoutCart = new ArrayList<>();
 
-    public List<MenuItem> addToCart(MenuItem item) {
+    public void addToCart(MenuItem item) {
         checkoutCart.add(item);
-        return checkoutCart;
     }
 
     public static void displayCheckoutCart() {

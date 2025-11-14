@@ -30,9 +30,9 @@ public class DrinkMenu {
 
     public static void drinkSizes() {
         System.out.println("What size drink would you like?");
-        System.out.println("1) Small ($2.00)");
-        System.out.println("2) Medium ($2.50)");
-        System.out.println("3) Large ($3.00)");
+        System.out.println("1) Small 12oz ($2.00)");
+        System.out.println("2) Medium 16oz ($2.50)");
+        System.out.println("3) Large 20oz ($3.00)");
     }
 
     public static String displaySizeMenu() {

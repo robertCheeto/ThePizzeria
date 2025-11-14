@@ -57,6 +57,7 @@ public class DrinkMenu {
                     System.out.println("You selected a Large Sized Drink!\n");
                     return "Large";
                 }
+                default -> System.out.println("\nPlease enter a valid input...");
             }
         }
     }
@@ -120,6 +121,7 @@ public class DrinkMenu {
                     System.out.println("You select Water!\n");
                     return "Water";
                 }
+                default -> System.out.println("\nPlease enter a valid input...");
             }
         }
     }

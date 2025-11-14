@@ -11,6 +11,7 @@ public class ReceiptGenerator {
     private static final LocalDateTime localDateTime = LocalDateTime.now();
     private static final DateTimeFormatter formatReceipt = DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss");
     private static final DateTimeFormatter formatText = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
+
     private static final String formatReceiptTXT = localDateTime.format(formatReceipt);
     private static final String formatTextPrint = localDateTime.format(formatText);
     private static final String RECEIPT_HEADER = "*** SPEZIALETTI'S PIZZERIA ***" +
@@ -63,7 +64,6 @@ public class ReceiptGenerator {
     public static void displayReceipt() {
         try {
             BufferedReader bufReader = new BufferedReader(new FileReader(FILE_PATH));
-
             String input;
 
             while ((input = bufReader.readLine()) != null) {

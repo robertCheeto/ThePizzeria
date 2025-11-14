@@ -55,9 +55,8 @@ public class BreadsticksMenu {
                     System.out.println("You selected Garlic Knots (12-count)");
                     return "Garlic Knots";
                 }
+                default -> System.out.println("\nPlease enter a valid input...");
             }
         }
-
     }
-
 }

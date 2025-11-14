@@ -97,7 +97,7 @@ public class HomeScreen implements HomeDisplay {
                     System.out.println("Returning to Home Screen...\n");
                     displayHome();
                 }
-                default -> System.out.print("\nPlease enter a valid input...\n");
+                default -> System.out.println("\nPlease enter a valid input...");
             }
         }
     }
@@ -109,5 +109,4 @@ public class HomeScreen implements HomeDisplay {
     public void printCheckOutReceipt() {
         ReceiptGenerator.printReceipt(cart);
     }
-
 }

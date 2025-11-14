@@ -63,7 +63,7 @@ public class PizzaMenu {
                     System.out.println("You selected a Large Sized Pizza!\n");
                     return "Large Sized";
                 }
-                default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+                default -> System.out.println("\nPlease enter a valid input...");
             }
         }
     }
@@ -103,7 +103,7 @@ public class PizzaMenu {
                     System.out.println("You selected Cauliflower Crust!\n");
                     return "Cauliflower Crust";
                 }
-                default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+                default -> System.out.println("\nPlease enter a valid input...");
             }
         }
     }
@@ -199,9 +199,19 @@ public class PizzaMenu {
                     System.out.println("No Sauce was added.\n");
                     return null;
                 }
-                default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+                default -> System.out.println("\nPlease enter a valid input...");
             }
         }
+    }
+
+    public static void cheeseToppingsMenu(){
+        System.out.println("How about some Cheese?");
+        System.out.println("1) Mozzarella | $0.75 / $1.50 / $2.25");
+        System.out.println("2) Parmesan | $0.75 / $1.50 / $2.25");
+        System.out.println("3) Ricotta | $0.75 / $1.50 / $2.25");
+        System.out.println("4) Goat Cheese | $0.75 / $1.50 / $2.25");
+        System.out.println("5) Buffalo | $0.75 / $1.50 / $2.25");
+        System.out.println("0) No Cheese");
     }
 
     public static Toppings displayCheeseToppingsMenu() {
@@ -247,19 +257,19 @@ public class PizzaMenu {
                     System.out.println("No cheese for you!\n");
                     return null;
                 }
-                default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+                default -> System.out.println("\nPlease enter a valid input...");
             }
         }
     }
 
-    public static void cheeseToppingsMenu(){
-        System.out.println("How about some Cheese?");
-        System.out.println("1) Mozzarella | $0.75 / $1.50 / $2.25");
-        System.out.println("2) Parmesan | $0.75 / $1.50 / $2.25");
-        System.out.println("3) Ricotta | $0.75 / $1.50 / $2.25");
-        System.out.println("4) Goat Cheese | $0.75 / $1.50 / $2.25");
-        System.out.println("5) Buffalo | $0.75 / $1.50 / $2.25");
-        System.out.println("0) No Cheese");
+    public static void extraCheeseToppingsMenu(){
+        System.out.println("More Cheese?");
+        System.out.println("1) Mozzarella | $0.30 / $0.60 / $0.90");
+        System.out.println("2) Parmesan | $0.30 / $0.60 / $0.90");
+        System.out.println("3) Ricotta | $0.30 / $0.60 / $0.90");
+        System.out.println("4) Goat Cheese | $0.30 / $0.60 / $0.90");
+        System.out.println("5) Buffalo | $0.30 / $0.60 / $0.90");
+        System.out.println("0) No Extra Cheese");
     }
 
     public static Toppings displayExtraCheeseMenu() {
@@ -305,19 +315,20 @@ public class PizzaMenu {
                     System.out.println("No extra cheese for you!");
                     return null;
                 }
-                default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+                default -> System.out.println("\nPlease enter a valid input...");
             }
         }
     }
 
-    public static void extraCheeseToppingsMenu(){
-        System.out.println("More Cheese?");
-        System.out.println("1) Mozzarella | $0.30 / $0.60 / $0.90");
-        System.out.println("2) Parmesan | $0.30 / $0.60 / $0.90");
-        System.out.println("3) Ricotta | $0.30 / $0.60 / $0.90");
-        System.out.println("4) Goat Cheese | $0.30 / $0.60 / $0.90");
-        System.out.println("5) Buffalo | $0.30 / $0.60 / $0.90");
-        System.out.println("0) No Extra Cheese");
+    public static void meatToppingsMenu() {
+        System.out.println("Do you want any meats?");
+        System.out.println("1) Pepperoni | $1.00 / $2.00 / $3.00");
+        System.out.println("2) Sausage | $1.00 / $2.00 / $3.00");
+        System.out.println("3) Ham | $1.00 / $2.00 / $3.00");
+        System.out.println("4) Bacon | $1.00 / $2.00 / $3.00");
+        System.out.println("5) Chicken | $1.00 / $2.00 / $3.00");
+        System.out.println("6) Meatball | $1.00 / $2.00 / $3.00");
+        System.out.println("0) No Meat");
     }
 
     public static Toppings displayMeatToppingsMenu() {
@@ -369,19 +380,19 @@ public class PizzaMenu {
                     System.out.println("No meats were added.\n");
                     return null;
                 }
-                default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+                default -> System.out.println("\nPlease enter a valid input...");
             }
         }
     }
 
-    public static void meatToppingsMenu() {
+    public static void extraMeatToppingsMenu() {
         System.out.println("Do you want any meats?");
-        System.out.println("1) Pepperoni | $1.00 / $2.00 / $3.00");
-        System.out.println("2) Sausage | $1.00 / $2.00 / $3.00");
-        System.out.println("3) Ham | $1.00 / $2.00 / $3.00");
-        System.out.println("4) Bacon | $1.00 / $2.00 / $3.00");
-        System.out.println("5) Chicken | $1.00 / $2.00 / $3.00");
-        System.out.println("6) Meatball | $1.00 / $2.00 / $3.00");
+        System.out.println("1) Pepperoni | $0.50 / $1.00 / $1.50");
+        System.out.println("2) Sausage | $0.50 / $1.00 / $1.50");
+        System.out.println("3) Ham | $0.50 / $1.00 / $1.50");
+        System.out.println("4) Bacon | $0.50 / $1.00 / $1.50");
+        System.out.println("5) Chicken | $0.50 / $1.00 / $1.50");
+        System.out.println("6) Meatball | $0.50 / $1.00 / $1.50");
         System.out.println("0) No Meat");
     }
 
@@ -434,20 +445,23 @@ public class PizzaMenu {
                     System.out.println("No extra meats were added.");
                     return null;
                 }
-                default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+                default -> System.out.println("\nPlease enter a valid input...");
             }
         }
     }
 
-    public static void extraMeatToppingsMenu() {
-        System.out.println("Do you want any meats?");
-        System.out.println("1) Pepperoni | $0.50 / $1.00 / $1.50");
-        System.out.println("2) Sausage | $0.50 / $1.00 / $1.50");
-        System.out.println("3) Ham | $0.50 / $1.00 / $1.50");
-        System.out.println("4) Bacon | $0.50 / $1.00 / $1.50");
-        System.out.println("5) Chicken | $0.50 / $1.00 / $1.50");
-        System.out.println("6) Meatball | $0.50 / $1.00 / $1.50");
-        System.out.println("0) No Meat");
+    public static void regularToppingsMenu() {
+        System.out.println("Any extra toppings?");
+        System.out.println("1) Onions");
+        System.out.println("2) Mushrooms");
+        System.out.println("3) Bell Peppers");
+        System.out.println("4) Olives");
+        System.out.println("5) Tomatoes");
+        System.out.println("6) Spinach");
+        System.out.println("7) Basil");
+        System.out.println("8) Pineapple");
+        System.out.println("9) Anchovies");
+        System.out.println("0) No extra toppings");
     }
 
     public static Toppings displayRegularToppingsMenu() {
@@ -517,23 +531,16 @@ public class PizzaMenu {
                     System.out.println("No extra toppings were added.\n");
                     return null;
                 }
-                default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+                default -> System.out.println("\nPlease enter a valid input...");
             }
         }
     }
 
-    public static void regularToppingsMenu() {
-        System.out.println("Any extra toppings?");
-        System.out.println("1) Onions");
-        System.out.println("2) Mushrooms");
-        System.out.println("3) Bell Peppers");
-        System.out.println("4) Olives");
-        System.out.println("5) Tomatoes");
-        System.out.println("6) Spinach");
-        System.out.println("7) Basil");
-        System.out.println("8) Pineapple");
-        System.out.println("9) Anchovies");
-        System.out.println("0) No extra toppings");
+    public static void pizzaAddOnMenu() {
+        System.out.println("Any side addons?");
+        System.out.println("1) Red Pepper Flake Packet");
+        System.out.println("2) Parmesan Cheese Packet");
+        System.out.println("0) No Packets");
     }
 
     public static Toppings displayAddOnsMenu() {
@@ -561,15 +568,8 @@ public class PizzaMenu {
                     System.out.println("No packets were added");
                     return null;
                 }
-                default -> System.out.print("\nPlease enter a valid input...\nEnter input here: ");
+                default -> System.out.println("\nPlease enter a valid input...");
             }
         }
-    }
-
-    public static void pizzaAddOnMenu() {
-        System.out.println("Any side addons?");
-        System.out.println("1) Red Pepper Flake Packet");
-        System.out.println("2) Parmesan Cheese Packet");
-        System.out.println("0) No Packets");
     }
 }
